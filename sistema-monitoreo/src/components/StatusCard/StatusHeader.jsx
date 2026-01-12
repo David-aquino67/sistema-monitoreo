@@ -1,4 +1,3 @@
-// src/components/StatusCard/StatusHeader.jsx
 import { Box, Typography } from '@mui/material';
 import { StatusChip } from './StatusChip';
 import { cardStyles } from '../../styles/Statuscard/styles';
