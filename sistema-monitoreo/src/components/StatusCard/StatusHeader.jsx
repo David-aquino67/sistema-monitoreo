@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { StatusChip } from './StatusChip';
-import { cardStyles } from '../../styles/Statuscard/styles';
+import { headerstyle } from '../../styles/Statuscard/styleheadercard';
 
 export const StatusHeader = ({ title, status, place }) => (
     <Box sx={{ mb: 2 }}>
-        <Box sx={cardStyles.header}>
+        <Box sx={headerstyle.header}>
             <Typography variant="h6">{title}</Typography>
             <StatusChip status={status} />
         </Box>

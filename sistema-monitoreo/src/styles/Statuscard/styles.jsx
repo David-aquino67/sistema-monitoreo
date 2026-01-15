@@ -6,12 +6,6 @@ export const cardStyles = {
         transition: 'transform 0.2s',
         '&:hover': { transform: 'scale(1.02)' }
     },
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        mb: 1
-    },
     metricsContainer: {
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
