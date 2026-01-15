@@ -1,12 +1,12 @@
-// src/pages/DashboardCard.jsx
 import { Grid, Typography, Box, Alert } from '@mui/material';
-import { fecha, latencia } from '../helpers/formateo'; // Verifica que la ruta a helpers sea correcta
+import { fecha, latencia } from '../helpers/formateo'; 
 
-// CORRECCIÓN DE RUTAS: Agregamos /StatusCard/ a la ruta
+
 import StatusCard from '../components/StatusCard/StatusCard';
 import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
 import { BotonesCard } from '../components/StatusCard/BotonesCard';
-import { useStatusActions } from '../components/StatusCard/useStatusActions';
+import { useStatusActions } from '../hooks/useStatusActions';
+
 
 const DashboardCard = () => {
     const { loading, execute } = useStatusActions();
