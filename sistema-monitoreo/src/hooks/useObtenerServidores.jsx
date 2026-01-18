@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { servidoresSimulados } from '../datos/servidoresSimulados';
+import { servidoresSimulados } from '../data/servidoresSimulados';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);

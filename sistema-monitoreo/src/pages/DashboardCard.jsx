@@ -1,70 +1,52 @@
-import { Grid, Typography, Box, Alert } from '@mui/material';
-import { fecha, latencia } from '../helpers/formateo'; 
-
-
+import { Grid, Typography, Box, CircularProgress } from '@mui/material';
+import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx';
+import { useStatusActions } from '../hooks/useStatusActions';
 import StatusCard from '../components/StatusCard/StatusCard';
 import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
 import { BotonesCard } from '../components/StatusCard/BotonesCard';
-import { useStatusActions } from '../hooks/useStatusActions';
-
+import { fecha, latencia } from '../helpers/formateo';
 
 const DashboardCard = () => {
-    const { loading, execute } = useStatusActions();
+    const { servidores, loading: loadingData } = useObtenerServidores();
+    const { loading: actionLoading, execute } = useStatusActions();
+
+    if (loadingData) {
+        return (
+            <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
+                <CircularProgress /> {/* Pantalla de carga mientras llega la "API" */}
+            </Box>
+        );
+    }
 
     return (
         <Box sx={{ p: 4 }}>
-            <Typography variant="h4" sx={{ mb: 4 }}>Panel de Monitoreo SIMF</Typography>
-
+            <Typography variant="h4" sx={{ mb: 4 }}>Monitoreo SIMF (Dinámico)</Typography>
             <Grid container spacing={3}>
-                {/* TARJETA 1 */}
-                <Grid item xs={12} md={6} lg={4}>
-                    <StatusCard
-                        title="UMF 10"
-                        place="Delegación Norte"
-                        status="online"
-                        footer={
-                            <BotonesCard
-                                loading={loading}
-                                onReboot={() => execute(() => console.log("Reinicio UMF 10"))}
-                                onReset={() => execute(() => console.log("Reset UMF 10"))}
-                                onClean={() => execute(() => console.log("Limpieza UMF 10"))}
+                {servidores.map((srv) => (
+                    <Grid item xs={12} md={6} lg={4} key={srv.id}>
+                        <StatusCard
+                            title={srv.titulo}
+                            place={srv.ubicacion}
+                            status={srv.estado}
+                            footer={
+                                <BotonesCard
+                                    loading={actionLoading}
+                                    onReboot={srv.permisos.restablecer ? () => execute(() => console.log("Reinicio", srv.id)) : null}
+                                    onReset={srv.permisos.limpiar ? () => execute(() => console.log("Reset", srv.id)) : null}
+                                    onClean={srv.permisos.reiniciar ? () => execute(() => console.log("Clean", srv.id)) : null}
+                                />
+                            }
+                        >
+                            <StatusMetrics
+                                uptime={fecha(srv.tiempoActividad)}
+                                latency={latencia(srv.latencia)}
+                                lastPing={new Date(srv.ultimoPing)}
                             />
-                        }
-                    >
-                        <StatusMetrics
-                            uptime={fecha("12d 5h")}
-                            latency={latencia(45)}
-                            lastPing={new Date()}
-                        />
-                    </StatusCard>
-                </Grid>
-
-                {/* TARJETA 2 */}
-                <Grid item xs={12} md={6} lg={4}>
-                    <StatusCard
-                        title="Servidor Central"
-                        place="Data Center"
-                        status="warning"
-                        footer={
-                            <BotonesCard
-                                loading={loading}
-                                onReboot={() => execute(() => console.log("Reinicio Crítico"))}
-                            />
-                        }
-                    >
-                        <StatusMetrics
-                            uptime={fecha("150d 2h")}
-                            latency={latencia(5)}
-                            lastPing={new Date()}
-                        />
-                        <Alert severity="info" sx={{ mt: 2 }}>
-                            Limpieza deshabilitada en producción.
-                        </Alert>
-                    </StatusCard>
-                </Grid>
+                        </StatusCard>
+                    </Grid>
+                ))}
             </Grid>
         </Box>
     );
 };
-
 export default DashboardCard;

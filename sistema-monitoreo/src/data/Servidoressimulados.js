@@ -6,7 +6,7 @@ export const servidoresSimulados = [
         estado: "online",
         tiempoActividad: "15d 4h",
         latencia: 42,
-        ultimoPing: "2024-03-20T10:00:00Z",
+        ultimoPing: new Date().toISOString(),
         permisos: { reiniciar: true, restablecer: true, limpiar: true }
     },
     {
