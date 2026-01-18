@@ -1,21 +1,33 @@
 import { useState, useEffect } from 'react';
-import { servidoresSimulados } from '../data/servidoresSimulados';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const obtenerDatos = async () => {
-            setCargando(true);
-            // Simulamos retraso de red de 1.5 segundos
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            setServidores(servidoresSimulados);
-            setCargando(false);
+        const consultarAPI = async () => {
+            try {
+                setCargando(true);
+                // Petición real a tu servidor local
+                const respuesta = await fetch('http://localhost:3001/servidores');
+
+                if (!respuesta.ok) {
+                    throw new Error('Error al conectar con la API de la OOMS');
+                }
+
+                const datos = await respuesta.json();
+                setServidores(datos);
+            } catch (err) {
+                console.error("Fallo en la carga:", err);
+                setError(err.message);
+            } finally {
+                setCargando(false);
+            }
         };
 
-        obtenerDatos();
+        consultarAPI();
     }, []);
 
-    return { servidores, cargando };
+    return { servidores, cargando, error };
 };

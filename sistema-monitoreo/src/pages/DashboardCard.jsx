@@ -22,7 +22,7 @@ const DashboardCard = () => {
         <Box sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 4 }}>Monitoreo SIMF (Dinámico)</Typography>
             <Grid container spacing={3}>
-                {servidores.map((srv) => (
+                {servidores?.map((srv) => (
                     <Grid item xs={12} md={6} lg={4} key={srv.id}>
                         <StatusCard
                             title={srv.titulo}
@@ -31,9 +31,9 @@ const DashboardCard = () => {
                             footer={
                                 <BotonesCard
                                     loading={actionLoading}
-                                    onReboot={srv.permisos.restablecer ? () => execute(() => console.log("Reinicio", srv.id)) : null}
-                                    onReset={srv.permisos.limpiar ? () => execute(() => console.log("Reset", srv.id)) : null}
-                                    onClean={srv.permisos.reiniciar ? () => execute(() => console.log("Clean", srv.id)) : null}
+                                    onReboot={srv.permisos.reiniciar ? () => execute(() => console.log("Reinicio", srv.id)) : null}
+                                    onReset={srv.permisos.restablecer ? () => execute(() => console.log("Reset", srv.id)) : null}
+                                    onClean={srv.permisos.limpiar ? () => execute(() => console.log("Limpieza", srv.id)) : null}
                                 />
                             }
                         >
