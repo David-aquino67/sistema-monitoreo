@@ -13,7 +13,7 @@ const DashboardCard = () => {
     if (loadingData) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
-                <CircularProgress /> {/* Pantalla de carga mientras llega la "API" */}
+                <CircularProgress /> {}
             </Box>
         );
     }

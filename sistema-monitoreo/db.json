@@ -29,6 +29,16 @@
         "latencia": 0,
         "ultimoPing": "2024-03-20T14:00:00Z",
         "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
+    },
+    {
+        "id": "4",
+        "titulo": "Hospital General",
+        "ubicacion": "Delegación Puebla",
+        "estado": "online",
+        "tiempoActividad": "1d 4h",
+        "latencia": 19,
+        "ultimoPing": "2024-03-20T14:00:00Z",
+        "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
     }
 ]
 }

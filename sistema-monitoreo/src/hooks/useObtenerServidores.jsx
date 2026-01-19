@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { obtenerServidores } from '../api/Obtenerservidores';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);
@@ -9,15 +10,9 @@ export const useObtenerServidores = () => {
         const consultarAPI = async () => {
             try {
                 setCargando(true);
-                // Petición real a tu servidor local
-                const respuesta = await fetch('http://localhost:3001/servidores');
-
-                if (!respuesta.ok) {
-                    throw new Error('Error al conectar con la API de la OOMS');
-                }
-
-                const datos = await respuesta.json();
-                setServidores(datos);
+                const respuesta = await obtenerServidores();
+                console.log("Respuesta de la API:", respuesta);
+                setServidores(respuesta);
             } catch (err) {
                 console.error("Fallo en la carga:", err);
                 setError(err.message);
