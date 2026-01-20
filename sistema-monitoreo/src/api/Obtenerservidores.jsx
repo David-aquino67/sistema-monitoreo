@@ -1,17 +1,16 @@
 import axios from 'axios';
 
+const clienteApi = axios.create({
+    baseURL: 'http://localhost:3001'
+});
 
-export const obtenerServidores=async()=>{
-    try{
-        const respuesta=await axios.get('http://localhost:3001/servidores');
-        if(respuesta.status!==200){
-            throw new Error('Error al conectar con la API de la OOMS');
-        }
-        console.log('Respuesta de servidores:',respuesta.data);
+export const obtenerServidores = async () => {
+    try {
+        const respuesta = await clienteApi.get('/servidores');
         return respuesta.data;
-
-    }catch(error){
-        console.error('Error al obtener los servidores:',error);
-        throw error;
+    } catch (error) {
+        const mensajeError = error.response?.data?.message || 'Error al conectar con la API de la OOMS';
+        console.error('Error en la petición:', mensajeError);
+        throw new Error(mensajeError);
     }
 };
