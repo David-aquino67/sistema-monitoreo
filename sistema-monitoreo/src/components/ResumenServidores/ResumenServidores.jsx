@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import StorageIcon from '@mui/icons-material/Storage';
-import { TarjetaResumen, ValorTexto } from '../../styles/Statuscard/resumenStyles';
+//import { TarjetaResumen, ValorTexto } from '../../styles/Statuscard/resumenStyles';
 
 const ResumenServidores = ({ total = 0 }) => {
     return (

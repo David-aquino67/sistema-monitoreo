@@ -5,6 +5,7 @@ import StatusCard from '../components/StatusCard/StatusCard';
 import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
 import { BotonesCard } from '../components/StatusCard/BotonesCard';
 import { fecha, latencia } from '../helpers/formateo';
+import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
 
 const DashboardCard = () => {
     const { servidores, loading: loadingData } = useObtenerServidores();
@@ -20,7 +21,17 @@ const DashboardCard = () => {
 
     return (
         <Box sx={{ p: 4 }}>
-            <Typography variant="h4" sx={{ mb: 4 }}>Monitoreo SIMF (Dinámico)</Typography>
+            {/* Header con Título y Resumen alineados */}
+            <Grid container alignItems="center" sx={{ mb: 4 }}>
+                <Grid item xs={12} md={8}>
+                    <Typography variant="h4">Monitoreo SIMF (Dinámico)</Typography>
+                </Grid>
+                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    {/* Quitamos el !cargando de aquí porque el 'if' de arriba ya maneja la espera */}
+                    <ResumenServidores total={totalServidores} />
+                </Grid>
+            </Grid>
+
             <Grid container spacing={3}>
                 {servidores?.map((srv) => (
                     <Grid item xs={12} md={6} lg={4} key={srv.id}>
