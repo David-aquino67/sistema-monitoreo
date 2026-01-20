@@ -7,6 +7,8 @@ import { BotonesCard } from '../components/StatusCard/BotonesCard';
 import { fecha, latencia } from '../helpers/formateo';
 import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
 import {useObtenerServidores} from '@hooks/useObtenerServidores.jsx'
+import {StatusResume} from '@components/StatusResume/StatusResume.jsx'
+
 const DashboardCard = () => {
     const { servidores, loading: loadingData } = useObtenerServidores();
     const { loading: actionLoading, execute } = useStatusActions();
@@ -18,7 +20,13 @@ const DashboardCard = () => {
             </Box>
         );
     }
-
+    const conteo = {
+        total: servidores?.length || 0,
+        online: servidores?.filter(s => s.estado === 'online').length || 0,
+        warning: servidores?.filter(s => s.estado === 'warning').length || 0,
+        offline: servidores?.filter(s => s.estado === 'offline').length || 0,
+        maintenance: servidores?.filter(s => s.estado === 'maintenance').length || 0,
+    };
     return (
         <Box sx={{ p: 4 }}>
             {/* Header con Título y Resumen alineados */}
@@ -30,6 +38,21 @@ const DashboardCard = () => {
                     {/* Quitamos el !cargando de aquí porque el 'if' de arriba ya maneja la espera */}
                     <ResumenServidores total={totalServidores} />
                 </Grid>
+
+                    {/* Sección de Resumen Global */}
+                    <Grid container spacing={2} sx={{ mb: 4 }}>
+                        <Grid item xs={12} md={3}>
+                            <ServerResume quantity={conteo.total} />
+                        </Grid>
+                        <Grid item xs={12} md={9}>
+                            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                                <StatusResume quantity={conteo.online} status="online" />
+                                <StatusResume quantity={conteo.warning} status="warning" />
+                                <StatusResume quantity={conteo.maintenance} status="maintenance" />
+                                <StatusResume quantity={conteo.offline} status="offline" />
+                            </Box>
+                        </Grid>
+                    </Grid>
             </Grid>
 
             <Grid container spacing={3}>
