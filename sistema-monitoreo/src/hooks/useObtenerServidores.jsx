@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { obtenerServidores } from '../api/Obtenerservidores';
+import { obtenerServidores } from '../api/Obtenerservidores.jsx';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);
@@ -10,11 +10,9 @@ export const useObtenerServidores = () => {
         const consultarAPI = async () => {
             try {
                 setCargando(true);
-                const respuesta = await obtenerServidores();
-                console.log("Respuesta de la API:", respuesta);
-                setServidores(respuesta);
+                const datos = await obtenerServidores();
+                setServidores(datos);
             } catch (err) {
-                console.error("Fallo en la carga:", err);
                 setError(err.message);
             } finally {
                 setCargando(false);
