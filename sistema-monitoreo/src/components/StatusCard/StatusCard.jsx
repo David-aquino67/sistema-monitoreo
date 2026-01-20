@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@mui/material';
-import { StatusHeader } from './StatusHeader';
-import { cardStyles } from '../../styles/Statuscard/styles';
+import { StatusHeader } from '@components/StatusCard/StatusHeader';
+import { cardStyles } from '@styles/Statuscard/styles';
 
 const StatusCard = ({ title, place, status, children, footer }) => {
     return (
