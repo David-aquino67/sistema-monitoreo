@@ -1,4 +1,4 @@
-import DashboardPage from './pages/DashboardCard.jsx';
+import DashboardPage from '@pages/DashboardCard.jsx';
 
 function App() {
     return (
