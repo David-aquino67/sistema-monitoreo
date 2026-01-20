@@ -28,7 +28,6 @@ const DashboardCard = () => {
     };
     return (
         <Box sx={{ p: 4 }}>
-            {/* Header con Título y Resumen alineados */}
             <Grid container alignItems="center" sx={{ mb: 4 }}>
                 <Grid item xs={12} md={8}>
                     <Typography variant="h4">Monitoreo SIMF (Dinámico)</Typography>
@@ -36,11 +35,8 @@ const DashboardCard = () => {
 
                 <Grid container spacing={2} sx={{ mb: 4 }}>
                     <Grid item xs={12} md={3}>
-                    {/* Quitamos el !cargando de aquí porque el 'if' de arriba ya maneja la espera */}
                     <ResumenServidores total={totalServidores} />
                     </Grid>
-
-                    {/* Sección de Resumen Global */}
                 <Grid item xs={12} md={9}>
                     <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', height: '100%' }}>
                         <StatusResume quantity={conteo.online} status="online" />
