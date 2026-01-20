@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Paper, Typography } from '@mui/material';
 import StorageIcon from '@mui/icons-material/Storage';
-import { estilosResumen } from '../../styles/ResumenServidoresStyle/resumenStyles.jsx';
+import { estilosResumen } from '@styles/ResumenServidoresStyle/resumenStyles.jsx';
 
 const ResumenServidores = ({ total = 0 }) => {
     return (
