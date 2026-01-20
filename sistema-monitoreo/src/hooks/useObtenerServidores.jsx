@@ -9,13 +9,10 @@ export const useObtenerServidores = () => {
         const consultarAPI = async () => {
             try {
                 setCargando(true);
-                // Petición real a tu servidor local
                 const respuesta = await fetch('http://localhost:3001/servidores');
-
                 if (!respuesta.ok) {
                     throw new Error('Error al conectar con la API de la OOMS');
                 }
-
                 const datos = await respuesta.json();
                 setServidores(datos);
             } catch (err) {
@@ -25,9 +22,7 @@ export const useObtenerServidores = () => {
                 setCargando(false);
             }
         };
-
         consultarAPI();
     }, []);
-
     return { servidores, cargando, error };
 };

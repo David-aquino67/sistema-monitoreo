@@ -9,7 +9,7 @@ import { fecha, latencia } from '../helpers/formateo';
 const DashboardCard = () => {
     const { servidores, loading: loadingData } = useObtenerServidores();
     const { loading: actionLoading, execute } = useStatusActions();
-
+    const totalServidores = servidores?.length || 0;
     if (loadingData) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
