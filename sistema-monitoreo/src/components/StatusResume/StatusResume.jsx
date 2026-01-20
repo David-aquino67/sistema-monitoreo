@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Paper, Typography } from '@mui/material';
 import { mapaEstados } from '@/const/StatusResume/mapaEstados.js';
-import { estilosStatus } from '../../styles/StatusResume/StatusResume.jsx';
+import { estilosStatus } from '@styles/StatusResume/StatusResume.jsx';
 
 const StatusResume = ({ quantity = 0, status = 'online' }) => {
     const config = mapaEstados[status] || { color: '#ccc', etiqueta: 'Desconocido' };
