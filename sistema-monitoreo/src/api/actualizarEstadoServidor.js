@@ -1,4 +1,4 @@
-import clienteApi from '../api/configuracionApi/configuracionApi.js';
+import clienteApi from '@api/configuracionApi/configuracionApi.js';
 
 export const actualizarEstadoServidor = async (id, nuevoEstado) => {
     try {

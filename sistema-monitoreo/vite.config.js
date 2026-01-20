@@ -16,8 +16,8 @@ export default defineConfig({
       '@context': path.resolve(__dirname, 'src/context'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@tests': path.resolve(__dirname, 'src/tests'),
-      'api': path.resolve(__dirname, 'src/api'),
-      'const': path.resolve(__dirname, 'src/const'),
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@const': path.resolve(__dirname, 'src/const'),
     },
   },
 })
