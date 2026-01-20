@@ -1,12 +1,13 @@
 export const estilosStatus = {
     tarjetaBase: (colorEstado) => ({
         padding: 2,
-        backgroundColor: '#1e293b',
+        backgroundColor: '#ffffff', // 1e293b
         borderLeft: `4px solid ${colorEstado}`,
-        color: '#ffffff',
+        color: '#000000',
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '160px',
+        minWidth: '200px',
+        height: '85%',
         flex: 1,
     }),
     contenedorEncabezado: {

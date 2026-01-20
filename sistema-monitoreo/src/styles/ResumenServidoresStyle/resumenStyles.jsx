@@ -1,14 +1,14 @@
 export const estilosResumen = {
     contenedorPrincipal: {
         padding: 3,
-        backgroundColor: '#1a2332',
-        color: '#ffffff',
+        backgroundColor: '#ffffff', //1a2332
+        color: '#000000',
         borderRadius: '12px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        minWidth: '250px',
-        height: '100%'
+        minWidth: '350px',
+        height: '85%'
     },
     tituloSeccion: {
         color: '#94a3b8',
