@@ -1,81 +1,40 @@
 import { Grid, Typography, Box, CircularProgress } from '@mui/material';
 import { useStatusActions } from '../hooks/useStatusActions';
-import StatusCard from '../components/StatusCard/StatusCard';
-import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
-import { BotonesCard } from '../components/StatusCard/BotonesCard';
-import { fecha, latencia } from '../helpers/formateo';
 import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx'; // Usando ruta relativa si el alias @ falla
-import StatusResume from '../components/StatusResume/StatusResume.jsx';
-import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
+//import { actualizarEstadoServidor } from '../api/actualizarEstadoServidor.js';
+import { SeccionResumen } from '../components/SeccionResumen';
+import { ListadoServidores } from '../components/ListadoServidores';
+import {useServidorLevantar} from "@hooks/useServidorLevantar.jsx";
 
 const DashboardCard = () => {
-    const { servidores, loading: loadingData } = useObtenerServidores();
+    const { servidores, loading: loadingData, refrescar } = useObtenerServidores();
     const { loading: actionLoading, execute } = useStatusActions();
-    const totalServidores = servidores?.length || 0;
+    const { manejarLevantar } = useServidorLevantar(execute, refrescar);
+
     if (loadingData) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
-                <CircularProgress /> {}
+                <CircularProgress />
             </Box>
         );
     }
-    const conteo = {
-        total: servidores?.length || 0,
-        online: servidores?.filter(s => s.estado === 'online').length || 0,
-        warning: servidores?.filter(s => s.estado === 'warning').length || 0,
-        offline: servidores?.filter(s => s.estado === 'offline').length || 0,
-        maintenance: servidores?.filter(s => s.estado === 'maintenance').length || 0,
-    };
+
     return (
         <Box sx={{ p: 4 }}>
-            <Grid container alignItems="center" sx={{ mb: 4 }}>
-                <Grid item xs={12} md={8}>
-                    <Typography variant="h4">Monitoreo SIMF (Dinámico)</Typography>
-                </Grid>
+            <Typography variant="h4" sx={{ mb: 4 }}>Monitoreo SIMF (Dinámico)</Typography>
 
-                <Grid container spacing={2} sx={{ mb: 4 }}>
-                    <Grid item xs={12} md={3}>
-                    <ResumenServidores total={totalServidores} />
-                    </Grid>
-                <Grid item xs={12} md={9}>
-                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', height: '100%' }}>
-                        <StatusResume quantity={conteo.online} status="online" />
-                        <StatusResume quantity={conteo.warning} status="warning" />
-                        <StatusResume quantity={conteo.maintenance} status="maintenance" />
-                        <StatusResume quantity={conteo.offline} status="offline" />
-                    </Box>
-                    </Grid>
-                </Grid>
-            </Grid>
+            {/* 1. Módulo de Resumen */}
+            <SeccionResumen servidores={servidores} />
 
-            <Grid container spacing={3}>
-                {servidores?.map((srv) => (
-                    <Grid item xs={12} md={6} lg={4} key={srv.id}>
-                        <StatusCard
-                            title={srv.titulo}
-                            place={srv.ubicacion}
-                            status={srv.estado}
-                            footer={
-                                <BotonesCard
-                                    estado={srv.estado}
-                                    loading={actionLoading}
-                                    onLevantar={() => execute(() => console.log(`Levantando servidor ID: ${srv.id}`))}
-                                    onReboot={srv.permisos.reiniciar ? () => execute(() => console.log("Reinicio", srv.id)) : null}
-                                    onReset={srv.permisos.restablecer ? () => execute(() => console.log("Reset", srv.id)) : null}
-                                    onClean={srv.permisos.limpiar ? () => execute(() => console.log("Limpieza", srv.id)) : null}
-                                />
-                            }
-                        >
-                            <StatusMetrics
-                                uptime={fecha(srv.tiempoActividad)}
-                                latency={latencia(srv.latencia)}
-                                lastPing={new Date(srv.ultimoPing)}
-                            />
-                        </StatusCard>
-                    </Grid>
-                ))}
-            </Grid>
+            {/* 2. Módulo de Listado */}
+            <ListadoServidores
+                servidores={servidores}
+                actionLoading={actionLoading}
+                manejarLevantar={manejarLevantar}
+                execute={execute}
+            />
         </Box>
     );
 };
+
 export default DashboardCard;
