@@ -57,7 +57,9 @@ const DashboardCard = () => {
                             status={srv.estado}
                             footer={
                                 <BotonesCard
+                                    estado={srv.estado}
                                     loading={actionLoading}
+                                    onLevantar={() => execute(() => console.log(`Levantando servidor ID: ${srv.id}`))}
                                     onReboot={srv.permisos.reiniciar ? () => execute(() => console.log("Reinicio", srv.id)) : null}
                                     onReset={srv.permisos.restablecer ? () => execute(() => console.log("Reset", srv.id)) : null}
                                     onClean={srv.permisos.limpiar ? () => execute(() => console.log("Limpieza", srv.id)) : null}
