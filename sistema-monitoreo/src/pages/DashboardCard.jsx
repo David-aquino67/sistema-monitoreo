@@ -1,13 +1,12 @@
 import { Grid, Typography, Box, CircularProgress } from '@mui/material';
-//import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx';
 import { useStatusActions } from '../hooks/useStatusActions';
 import StatusCard from '../components/StatusCard/StatusCard';
 import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
 import { BotonesCard } from '../components/StatusCard/BotonesCard';
 import { fecha, latencia } from '../helpers/formateo';
+import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx'; // Usando ruta relativa si el alias @ falla
+import StatusResume from '../components/StatusResume/StatusResume.jsx';
 import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
-import {useObtenerServidores} from '@hooks/useObtenerServidores.jsx'
-import {StatusResume} from '@components/StatusResume/StatusResume.jsx'
 
 const DashboardCard = () => {
     const { servidores, loading: loadingData } = useObtenerServidores();
@@ -34,25 +33,23 @@ const DashboardCard = () => {
                 <Grid item xs={12} md={8}>
                     <Typography variant="h4">Monitoreo SIMF (Dinámico)</Typography>
                 </Grid>
-                <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+
+                <Grid container spacing={2} sx={{ mb: 4 }}>
+                    <Grid item xs={12} md={3}>
                     {/* Quitamos el !cargando de aquí porque el 'if' de arriba ya maneja la espera */}
                     <ResumenServidores total={totalServidores} />
-                </Grid>
+                    </Grid>
 
                     {/* Sección de Resumen Global */}
-                    <Grid container spacing={2} sx={{ mb: 4 }}>
-                        <Grid item xs={12} md={3}>
-                            <ServerResume quantity={conteo.total} />
-                        </Grid>
-                        <Grid item xs={12} md={9}>
-                            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                                <StatusResume quantity={conteo.online} status="online" />
-                                <StatusResume quantity={conteo.warning} status="warning" />
-                                <StatusResume quantity={conteo.maintenance} status="maintenance" />
-                                <StatusResume quantity={conteo.offline} status="offline" />
-                            </Box>
-                        </Grid>
+                <Grid item xs={12} md={9}>
+                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', height: '100%' }}>
+                        <StatusResume quantity={conteo.online} status="online" />
+                        <StatusResume quantity={conteo.warning} status="warning" />
+                        <StatusResume quantity={conteo.maintenance} status="maintenance" />
+                        <StatusResume quantity={conteo.offline} status="offline" />
+                    </Box>
                     </Grid>
+                </Grid>
             </Grid>
 
             <Grid container spacing={3}>

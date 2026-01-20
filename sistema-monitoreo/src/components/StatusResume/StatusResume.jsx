@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { TarjetaMiniResumen, IndicadorCircular, mapaEstados } from '../../styles/Statuscard/resumenStyles';
+import { TarjetaMiniResumen, IndicadorCircular } from '../../styles/StatusResume/StatusResume.jsx';
+import {mapaEstados} from '@/const/StatusResume/mapaEstados.js';
 
 const StatusResume = ({ quantity = 0, status = 'online' }) => {
     const configuracion = mapaEstados[status];
