@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
-import StatusCard from '../components/StatusCard/StatusCard.jsx';
-import { StatusMetrics } from '../components/StatusCard/StatusMetrics.jsx';
-import { BotonesCard } from '../components/StatusCard/BotonesCard.jsx';
-import { fecha, latencia } from '../helpers/formateo.jsx';
+import StatusCard from '@components/StatusCard/StatusCard.jsx';
+import { StatusMetrics } from '@components/StatusCard/StatusMetrics.jsx';
+import { BotonesCard } from '@components/StatusCard/BotonesCard.jsx';
+import { fecha, latencia } from '@helpers/formateo.jsx';
 
 export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, execute }) => {
     return (
