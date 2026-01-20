@@ -1,6 +1,6 @@
 import { Grid, Box } from '@mui/material';
-import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
-import StatusResume from '../components/StatusResume/StatusResume.jsx';
+import ResumenServidores from '@components/ResumenServidores/ResumenServidores.jsx';
+import StatusResume from '@components/StatusResume/StatusResume.jsx';
 
 export const SeccionResumen = ({ servidores = [] }) => {
     const conteo = {
