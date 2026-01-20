@@ -1,21 +1,23 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 import StorageIcon from '@mui/icons-material/Storage';
-import { TarjetaResumen, ValorTexto } from '../../styles/ResumenServidoresStyle/resumenStyles';
+import { estilosResumen } from '../../styles/ResumenServidoresStyle/resumenStyles.jsx';
 
 const ResumenServidores = ({ total = 0 }) => {
     return (
-        <TarjetaResumen elevation={3}>
+        <Paper elevation={3} sx={estilosResumen.contenedorPrincipal}>
             <Box>
-                <Typography variant="overline" sx={{ color: '#94a3b8', fontWeight: 'bold' }}>
-                    Unidades en Red
+                <Typography variant="body1" sx={estilosResumen.tituloSeccion}>
+                    Total Servidores
                 </Typography>
-                <ValorTexto>
+
+                <Typography sx={estilosResumen.valorGrande}>
                     {total}
-                </ValorTexto>
+                </Typography>
             </Box>
-            <StorageIcon sx={{ fontSize: 45, opacity: 0.2 }} />
-        </TarjetaResumen>
+
+            <StorageIcon sx={{ fontSize: 48, color: '#334155', opacity: 0.8 }} />
+        </Paper>
     );
 };
 
