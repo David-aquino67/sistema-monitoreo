@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { obtenerServidores } from '../api/Obtenerservidores.jsx';
+import { obtenerServidores } from '@api/Obtenerservidores.jsx';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);
