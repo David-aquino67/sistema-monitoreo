@@ -1,12 +1,12 @@
 import { Grid, Typography, Box, CircularProgress } from '@mui/material';
-import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx';
+//import { useObtenerServidores } from '../hooks/useObtenerServidores.jsx';
 import { useStatusActions } from '../hooks/useStatusActions';
 import StatusCard from '../components/StatusCard/StatusCard';
 import { StatusMetrics } from '../components/StatusCard/StatusMetrics';
 import { BotonesCard } from '../components/StatusCard/BotonesCard';
 import { fecha, latencia } from '../helpers/formateo';
 import ResumenServidores from '../components/ResumenServidores/ResumenServidores.jsx';
-
+import {useObtenerServidores} from '@hooks/useObtenerServidores.jsx'
 const DashboardCard = () => {
     const { servidores, loading: loadingData } = useObtenerServidores();
     const { loading: actionLoading, execute } = useStatusActions();
