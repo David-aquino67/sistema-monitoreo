@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { obtenerServidores } from '../api/Obtenerservidores.jsx';
 
 export const useObtenerServidores = () => {
     const [servidores, setServidores] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const consultarAPI = async () => {
-            try {
-                setCargando(true);
-                const datos = await obtenerServidores();
-                setServidores(datos);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setCargando(false);
-            }
-        };
-
-        consultarAPI();
+    const consultarAPI = useCallback(async () => {
+        try {
+            setCargando(true);
+            const datos = await obtenerServidores();
+            setServidores(datos);
+            setError(null);
+        } catch (err) {
+            console.error("Error al obtener servidores:", err.message);
+            setError(err.message);
+        } finally {
+            setCargando(false);
+        }
     }, []);
+    useEffect(() => {
+        consultarAPI();
+    }, [consultarAPI]);
 
-    return { servidores, cargando, error };
+   return { servidores, cargando, error, refrescar: consultarAPI };
 };

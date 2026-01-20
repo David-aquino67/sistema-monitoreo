@@ -1,44 +1,60 @@
 {
-    "servidores": [
+  "servidores": [
     {
-        "id": "1",
-        "titulo": "UMF 10 - Santa Anita",
-        "ubicacion": "Delegación CDMX Norte",
-        "estado": "online",
-        "tiempoActividad": "24d 12h",
-        "latencia": 38,
-        "ultimoPing": "2024-03-20T15:30:00Z",
-        "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
+      "id": "1",
+      "titulo": "UMF 10 - Santa Anita",
+      "ubicacion": "Delegación CDMX Norte",
+      "estado": "online",
+      "tiempoActividad": "24d 12h",
+      "latencia": 38,
+      "ultimoPing": "2024-03-20T15:30:00Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": true,
+        "limpiar": true
+      }
     },
     {
-        "id": "2",
-        "titulo": "Servidor Central SIMF",
-        "ubicacion": "Data Center Principal",
-        "estado": "warning",
-        "tiempoActividad": "150d 5h",
-        "latencia": 12,
-        "ultimoPing": "2024-03-20T15:35:00Z",
-        "permisos": { "reiniciar": true, "restablecer": false, "limpiar": false }
+      "id": "2",
+      "titulo": "Servidor Central SIMF",
+      "ubicacion": "Data Center Principal",
+      "estado": "warning",
+      "tiempoActividad": "150d 5h",
+      "latencia": 12,
+      "ultimoPing": "2024-03-20T15:35:00Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": false,
+        "limpiar": false
+      }
     },
     {
-        "id": "3",
-        "titulo": "UMF 22 - Morelos",
-        "ubicacion": "Delegación Morelos",
-        "estado": "offline",
-        "tiempoActividad": "0d 0h",
-        "latencia": 0,
-        "ultimoPing": "2024-03-20T14:00:00Z",
-        "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
+      "id": "3",
+      "titulo": "UMF 22 - Morelos",
+      "ubicacion": "Delegación Morelos",
+      "estado": "online",
+      "tiempoActividad": "0d 0h",
+      "latencia": 0,
+      "ultimoPing": "2024-03-20T14:00:00Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": true,
+        "limpiar": true
+      }
     },
     {
-        "id": "4",
-        "titulo": "Hospital General",
-        "ubicacion": "Delegación Puebla",
-        "estado": "online",
-        "tiempoActividad": "1d 4h",
-        "latencia": 19,
-        "ultimoPing": "2024-03-20T14:00:00Z",
-        "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
+      "id": "4",
+      "titulo": "Hospital General",
+      "ubicacion": "Delegación Puebla",
+      "estado": "online",
+      "tiempoActividad": "1d 4h",
+      "latencia": 19,
+      "ultimoPing": "2024-03-20T14:00:00Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": true,
+        "limpiar": true
+      }
     }
-]
+  ]
 }
