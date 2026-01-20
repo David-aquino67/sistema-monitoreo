@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import { horaFormateada } from '../../helpers/formateo';
-import { metricstyle } from '../../styles/Statuscard/stylemetrics';
+import { horaFormateada } from '@helpers/formateo';
+import { metricstyle } from '@styles/Statuscard/stylemetrics';
 
 export const StatusMetrics = ({ uptime, latency, lastPing }) => (
     <Box sx={metricstyle.metricsContainer}>
