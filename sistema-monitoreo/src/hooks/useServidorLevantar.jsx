@@ -1,4 +1,4 @@
-import { actualizarEstadoServidor } from '../api/actualizarEstadoServidor';
+import { actualizarEstadoServidor } from '@api/actualizarEstadoServidor';
 
 export const useServidorLevantar = (execute, refrescar) => {
 
