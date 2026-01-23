@@ -1,8 +1,4 @@
-import axios from 'axios';
-
-const clienteApi = axios.create({
-    baseURL: 'http://localhost:3001'
-});
+import clienteApi from '@api/configuracionApi/configuracionApi';
 
 export const obtenerServidores = async () => {
     try {
