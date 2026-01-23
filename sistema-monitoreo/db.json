@@ -6,11 +6,15 @@
       "ip": "10.15.2.14",
       "endpoint": "http://10.15.2.14:8080/api/v1",
       "ubicacion": "Delegación CDMX Norte",
-      "estado": "online",
-      "tiempoActividad": "24d 12h",
-      "latencia": 38,
-      "ultimoPing": "2024-03-20T15:30:00Z",
-      "permisos": { "reiniciar": true, "restablecer": true, "limpiar": true }
+      "estado": "offline",
+      "tiempoActividad": "0d 0h",
+      "latencia": 0,
+      "ultimoPing": "2026-01-23T15:41:32.948Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": true,
+        "limpiar": true
+      }
     },
     {
       "id": "2",
@@ -18,11 +22,47 @@
       "ip": "172.16.0.1",
       "endpoint": "http://simf-central.imss.gob.mx/status",
       "ubicacion": "Data Center Principal",
-      "estado": "warning",
-      "tiempoActividad": "150d 5h",
-      "latencia": 12,
-      "ultimoPing": "2024-03-20T15:35:00Z",
-      "permisos": { "reiniciar": true, "restablecer": false, "limpiar": false }
+      "estado": "maintenance",
+      "tiempoActividad": "16d 7h",
+      "latencia": 94,
+      "ultimoPing": "2026-01-23T15:41:42.950Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": false,
+        "limpiar": false
+      }
+    },
+    {
+      "id": "3",
+      "titulo": "UMF 12 - Cholula",
+      "ip": "10.15.2.15",
+      "endpoint": "http://10.15.2.15:8080/api/v1",
+      "ubicacion": "Delegación puebla",
+      "estado": "offline",
+      "tiempoActividad": "0d 0h",
+      "latencia": 0,
+      "ultimoPing": "2026-01-23T15:41:22.945Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": true,
+        "limpiar": true
+      }
+    },
+    {
+      "id": "4",
+      "titulo": "Servidor Central izucar",
+      "ip": "172.16.0.2",
+      "endpoint": "http://simf-central.imss.gob.mx/status",
+      "ubicacion": "Data Center Principal",
+      "estado": "online",
+      "tiempoActividad": "9d 1h",
+      "latencia": 39,
+      "ultimoPing": "2026-01-23T15:41:12.936Z",
+      "permisos": {
+        "reiniciar": true,
+        "restablecer": false,
+        "limpiar": false
+      }
     }
   ]
 }

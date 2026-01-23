@@ -13,7 +13,7 @@ const simularEvento = () => {
     const servidor = data.servidores[indiceAleatorio];
 
     // 3. Decidir nuevo estado (80% probabilidad de estar online/warning, 20% offline)
-    const estadosPosibles = ['online', 'online', 'online', 'warning', 'offline'];
+    const estadosPosibles = ['maintenance', 'online', 'warning', 'offline'];
     const nuevoEstado = estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)];
 
     console.log(`>>> Actualizando ${servidor.titulo}: ${servidor.estado} -> ${nuevoEstado}`);
