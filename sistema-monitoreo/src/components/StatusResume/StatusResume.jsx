@@ -6,6 +6,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DangerousIcon from '@mui/icons-material/Dangerous'; 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 const StatusResume = ({ quantity = 0, status = 'online' }) => {
     const config = mapaEstados[status] || { color: '#ccc', etiqueta: 'Desconocido' };
 
@@ -28,7 +29,7 @@ const StatusResume = ({ quantity = 0, status = 'online' }) => {
                 <DangerousIcon sx={{ color: config.color, fontSize: '1.5rem', ml: 1 }} />
             )}
             {status === 'online' && (
-                <CheckCircleIcon sx={{ color: config.color, fontSize: '1.5rem', ml: 1 }} />
+                <AutoGraphIcon sx={{ color: config.color, fontSize: '1.5rem', ml: 1 }} />
             )}
             </Box>
 
