@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // Configuración
-const ARCHIVO_DB = 'db.json';
+const ARCHIVO_DB = require('path').join(__dirname, 'db.json');
 const INTERVALO_MS = 10000; // 10 segundos para propósitos de prueba rápida
 
 const simularEvento = () => {
