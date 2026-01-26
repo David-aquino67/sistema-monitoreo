@@ -1,21 +1,35 @@
-import { CardActions, Button, Box } from '@mui/material';
+import { CardActions, Button, Box, CircularProgress } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+const buttonSx = {
+    ...(success && {
+      bgcolor: green[500],
+      '&:hover': {
+        bgcolor: green[700],
+      },
+    }),
+  };
 
 export const BotonesCard = ({ loading, onReboot, onReset, onClean, estado, onLevantar }) => {
     if (estado === 'offline') {
         return (
-            <CardActions sx={{ p: 2, pt: 0 }}>
+            <CardActions sx={{ p: 2, pt: 0, buttonSx }}>
                 <Button
                     fullWidth
                     variant="contained"
                     color="success"
                     startIcon={<PlayArrowIcon />}
-                    onClick={onLevantar}
+                    onClick={onLevantar }
                     disabled={loading}
                     sx={{ borderRadius: '8px', textTransform: 'none' }}
                 >
                     {loading ? 'Levantando...' : 'Levantar'}
                 </Button>
+                {loading && (
+                    <CircularProgress
+                        size={20}
+                        sx={{ ml: 1, color: 'white' }}
+                    />
+                )}
             </CardActions>
         );
     }
