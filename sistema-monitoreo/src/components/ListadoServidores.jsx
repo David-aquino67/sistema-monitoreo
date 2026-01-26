@@ -3,7 +3,7 @@ import StatusCard from '@components/StatusCard/StatusCard.jsx';
 import { StatusMetrics } from '@components/StatusCard/StatusMetrics.jsx';
 import { BotonesCard } from '@components/StatusCard/BotonesCard.jsx';
 import { fecha, latencia } from '@helpers/formateo.jsx';
-import Alert from '@mui/material/Alert';
+import AlertaServidor from '@components/StatusCard/AlertaServidor.jsx';
 
 
 export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, execute }) => {
@@ -15,9 +15,7 @@ export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, 
                         title={srv.titulo}
                         place={srv.ubicacion}
                         status={srv.estado}
-                        Alerta={srv.estado === 'warning' && (
-                            <Alert severity="warning">El servidor está experimentando inestabilidad.</Alert>
-            )}
+                        Alerta={<AlertaServidor servidores={srv.estado} />}
                         footer={
                             <BotonesCard
                                 estado={srv.estado}
