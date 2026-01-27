@@ -22,7 +22,7 @@
       "ip": "172.16.0.1",
       "endpoint": "http://simf-central.imss.gob.mx/status",
       "ubicacion": "Data Center Principal",
-      "estado": "offline",
+      "estado": "offine",
       "tiempoActividad": "26d 7h",
       "latencia": 80,
       "ultimoPing": "2026-01-23T18:02:01.442Z",
