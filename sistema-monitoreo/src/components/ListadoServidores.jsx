@@ -12,12 +12,14 @@ export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, 
             {servidores?.map((srv) => (
                 <Grid item xs={12} md={6} lg={4} key={srv.id}>
                     <StatusCard
+                        key={srv.id}
                         title={srv.titulo}
                         place={srv.ubicacion}
                         status={srv.estado}
                         Alerta={<AlertaServidor servidores={srv.estado} />}
                         footer={
                             <BotonesCard
+                                id={srv.id}
                                 estado={srv.estado}
                                 loading={actionLoading}
                                 onLevantar={() => manejarLevantar(srv.id)}
