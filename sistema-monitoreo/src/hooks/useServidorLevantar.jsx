@@ -7,7 +7,7 @@ export const useServidorLevantar = (execute, refrescar) => {
     // Efecto para limpiar el estado de éxito después de 2 segundos
     useEffect(() => {
         if (success) {
-            const timer = setTimeout(() => setSuccess(false), 2000);
+            const timer = setTimeout(() => setSuccess(false), 10000);
             return () => clearTimeout(timer);
         }
     }, [success]);

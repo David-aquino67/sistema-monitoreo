@@ -7,16 +7,14 @@ export const estilosBotones = {
         width: '100%'
     },
     botonLevantar: (success) => ({
-        borderRadius: '8px',
-        textTransform: 'none',
-        transition: 'all 0.3s ease',
-        ...(success && {
-            bgcolor: green[700],
-            '&:hover': { bgcolor: green[700] },
-        }),
-    }),
+  borderRadius: '8px',
+  textTransform: 'none',
+  transition: 'all 0.3s ease',
+  bgcolor: success ? green[700] : green[500],   
+  '&:hover': { bgcolor: success ? green[800] : green[600] }, 
+}),
     progresoCircular: {
-        color: green[700],
+        color: "warning",
         position: 'absolute',
         top: '50%',
         left: '50%',

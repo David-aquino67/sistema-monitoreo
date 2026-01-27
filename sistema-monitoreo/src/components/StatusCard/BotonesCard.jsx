@@ -10,20 +10,15 @@ export const BotonesCard = ({ loading, estado, onLevantar, id, onReboot, onReset
             <CardActions sx={{ p: 2, pt: 0 }}>
                 <Box sx={estilosBotones.contenedorRelativo}>
                     <Button
-                        fullWidth
-                        variant="contained"
-                        // Cambia el color base: success si tuvo éxito, primary por defecto
-                        color={success ? "success" : "primary"}
-                        // Cambia el icono: Check si tuvo éxito, Play si está listo, nada si está cargando
-                        startIcon={success ? <CheckIcon /> : (!loading && <PlayArrowIcon />)}
-                        onClick={() => manejarLevantar(id)}
-                        disabled={loading}
-                        // Aplicamos el objeto de estilos que creamos
-                        sx={estilosBotones.botonLevantar(success)}
-                    >
-                        {loading ? 'Levantando...' : (success ? 'En línea' : 'Levantar')}
-                    </Button>
-
+                    fullWidth
+                    variant="contained"
+                    startIcon={success ? <CheckIcon /> : (!loading && <PlayArrowIcon />)}
+                    onClick={() => manejarLevantar(id)}
+                    disabled={loading}
+                    sx={estilosBotones.botonLevantar(success)}
+                     >
+                {loading ? 'Levantando...' : (success ? 'En línea' : 'Levantar')}
+                </Button>
                     {loading && (
                         <CircularProgress
                             size={24}
