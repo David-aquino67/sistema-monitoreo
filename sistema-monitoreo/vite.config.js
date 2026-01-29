@@ -18,6 +18,7 @@ export default defineConfig({
       '@tests': path.resolve(__dirname, 'src/tests'),
       '@api': path.resolve(__dirname, 'src/api'),
       '@const': path.resolve(__dirname, 'src/const'),
+      '@lib': path.resolve(__dirname, 'src/lib'),
     },
   },
 })

@@ -1,11 +1,11 @@
-import { useEffect } from 'react'; // <--- VITAL: Faltaba este import
+import { useEffect } from 'react'; 
 import { Grid, Typography, Box, CircularProgress } from '@mui/material';
 import { useStatusActions } from '@hooks/useStatusActions';
 import { useObtenerServidores } from '@hooks/useObtenerServidores.jsx';
 import { SeccionResumen } from '@components/SeccionResumen';
 import { ListadoServidores } from '@components/ListadoServidores.jsx';
 import { useServidorLevantar } from "@hooks/useServidorLevantar.jsx";
-import { echo } from '../lib/echo.js';
+import { echo } from '@lib/echo.js';
 
 const DashboardCard = () => {
     const { servidores, loading: loadingData, refrescar, setServidores } = useObtenerServidores();
