@@ -11,3 +11,5 @@ export const echo = new Echo({
     forceTLS: false,
     enabledTransports: ['ws', 'wss'],
 });
+// Dentro de DashboardCard.jsx, antes del return
+console.log("Mi llave de Reverb es:", import.meta.env.VITE_REVERB_APP_KEY);
