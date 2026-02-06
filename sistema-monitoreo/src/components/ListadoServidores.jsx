@@ -8,20 +8,21 @@ import AlertaServidor from '@components/StatusCard/AlertaServidor.jsx';
 
 export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, execute }) => {
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={8} alignItems={"stretch"}>
             {servidores?.map((srv) => (
-                <Grid item xs={12} md={6} lg={4} key={srv.id}>
+                <Grid item xs={12} sm={6} lg={4} key={srv.id} sx={{ display: 'flex' }}>
                     <StatusCard
                         key={srv.id}
                         title={srv.titulo}
                         place={srv.ubicacion}
                         status={srv.estado}
+                        sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}
                         Alerta={<AlertaServidor servidores={srv.estado} />}
                         footer={
                             <BotonesCard
                                 id={srv.id}
                                 estado={srv.estado}
-                                loading={actionLoading}
+                                loading={actionLoading === srv.id}
                                 onLevantar={() => manejarLevantar(srv.id)}
                                 onReboot={srv.permisos.reiniciar ? () => execute(() => console.log("Reinicio", srv.id)) : null}
                                 onReset={srv.permisos.restablecer ? () => execute(() => console.log("Reset", srv.id)) : null}
@@ -29,11 +30,13 @@ export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, 
                             />
                         }
                     >
+                        <div style={{flexGrow: 1}}>
                         <StatusMetrics
                             uptime={fecha(srv.tiempoActividad)}
                             latency={latencia(srv.latencia)}
                             lastPing={new Date(srv.ultimoPing)}
                         />
+                    </div>
                     </StatusCard>
                 </Grid>
             ))}
