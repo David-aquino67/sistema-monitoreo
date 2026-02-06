@@ -9,7 +9,7 @@ import { echo } from '@lib/echo.js';
 
 const DashboardCard = () => {
     const { servidores, loading: loadingData, refrescar, setServidores } = useObtenerServidores();
-    const { loading: actionLoading, execute } = useStatusActions();
+    const { loadingId, execute } = useStatusActions();
     const { manejarLevantar } = useServidorLevantar(execute, refrescar);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const DashboardCard = () => {
 
             <ListadoServidores
                 servidores={servidores}
-                actionLoading={actionLoading}
+                loadingId={loadingId}
                 manejarLevantar={manejarLevantar}
                 execute={execute}
             />

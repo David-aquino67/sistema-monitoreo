@@ -1,18 +1,23 @@
 import { useState } from 'react';
 
 export const useStatusActions = () => {
-    const [loading, setLoading] = useState(null);
-    const execute = async (actionFn, serverId) => {
-        if (!actionFn) return;
-        setLoading(serverId);
+    const [loadingId, setLoadingId] = useState(null);
+
+    const execute = async (id, actionFn) => {
+        if (typeof actionFn !== 'function') {
+            console.error("El segundo argumento de execute debe ser una función");
+            return;
+        }
+
+        setLoadingId(id);
         try {
             await actionFn();
         } catch (error) {
             console.error("Error ejecutando acción:", error);
         } finally {
-            setLoading(null);
+            setLoadingId(null);
         }
     };
 
-    return { loading, execute };
+    return { loadingId, execute };
 };
