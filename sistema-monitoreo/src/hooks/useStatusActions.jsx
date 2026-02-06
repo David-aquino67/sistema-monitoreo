@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
 export const useStatusActions = () => {
-    const [loading, setLoading] = useState(false);
-    const execute = async (actionFn) => {
+    const [loading, setLoading] = useState(null);
+    const execute = async (actionFn, serverId) => {
         if (!actionFn) return;
-        setLoading(true);
+        setLoading(serverId);
         try {
             await actionFn();
         } catch (error) {
             console.error("Error ejecutando acción:", error);
         } finally {
-            setLoading(false);
+            setLoading(null);
         }
     };
 
