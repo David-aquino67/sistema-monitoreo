@@ -6,7 +6,7 @@ import { fecha, latencia } from '@helpers/formateo.jsx';
 import AlertaServidor from '@components/StatusCard/AlertaServidor.jsx';
 
 
-export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, execute }) => {
+export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, execute }) => {
     return (
         <Grid container spacing={8} alignItems={"stretch"}>
             {servidores?.map((srv) => (
@@ -22,11 +22,11 @@ export const ListadoServidores = ({ servidores, actionLoading, manejarLevantar, 
                             <BotonesCard
                                 id={srv.id}
                                 estado={srv.estado}
-                                loading={actionLoading === srv.id}
+                                loading={loadingId === srv.id}
                                 onLevantar={() => manejarLevantar(srv.id)}
-                                onReboot={srv.permisos.reiniciar ? () => execute(() => console.log("Reinicio", srv.id)) : null}
-                                onReset={srv.permisos.restablecer ? () => execute(() => console.log("Reset", srv.id)) : null}
-                                onClean={srv.permisos.limpiar ? () => execute(() => console.log("Limpieza", srv.id)) : null}
+                                onReboot={srv.permisos.reiniciar ? () => execute(srv.id, () => console.log("Reinicio", srv.id)) : null}
+                                onReset={srv.permisos.restablecer ? () => execute(srv.id, () => console.log("Reset", srv.id)) : null}
+                                onClean={srv.permisos.limpiar ? () => execute(srv.id, () => console.log("Limpieza", srv.id)) : null}
                             />
                         }
                     >
