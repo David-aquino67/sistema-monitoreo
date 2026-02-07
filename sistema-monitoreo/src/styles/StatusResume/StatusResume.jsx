@@ -6,10 +6,10 @@ export const estilosStatus = {
         color: '#000000',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center', // Centra el contenido verticalmente
-        width: '100%',            // Ocupa el 100% del espacio del Grid asignado
-        height: '100%',           // Se estira para igualar a sus compañeras de fila
-        borderRadius: '12px',     // Consistencia con el diseño de Paper
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        borderRadius: '12px',
         boxSizing: 'border-box'
     }),
     contenedorEncabezado: {
@@ -26,6 +26,6 @@ export const estilosStatus = {
     }),
     textoCantidad: {
         fontWeight: 'bold',
-        fontSize: { xs: '1.2rem', md: '1.5rem' } // Tamaño de fuente responsivo
+        fontSize: { xs: '1.2rem', md: '1.5rem' }
     }
 };
