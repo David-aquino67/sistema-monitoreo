@@ -11,7 +11,7 @@ const StatusResume = ({ quantity = 0, status = 'online' }) => {
             <Box sx={estilosStatus.contenedorEncabezado}>
                 <Typography
                     variant="caption"
-                    sx={{ color: config.color, fontWeight: 'bold' }}
+                    sx={{ color: config.color, fontWeight: 'bold', textTransform: 'uppercase', fontSize: { xs: '0.6rem', md: '0.75rem' } }}
                 >
                     {config.etiqueta}
                 </Typography>

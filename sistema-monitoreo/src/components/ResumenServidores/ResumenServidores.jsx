@@ -16,7 +16,11 @@ const ResumenServidores = ({ total = 0 }) => {
                 </Typography>
             </Box>
 
-            <StorageIcon sx={{ fontSize: 48, color: '#334155', opacity: 0.8 }} />
+            <StorageIcon sx={{
+                fontSize: { xs: 32, sm: 48 },
+                color: '#334155',
+                opacity: 0.8
+            }} />
         </Paper>
     );
 };

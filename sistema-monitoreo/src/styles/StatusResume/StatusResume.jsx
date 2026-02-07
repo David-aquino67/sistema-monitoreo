@@ -1,14 +1,16 @@
 export const estilosStatus = {
     tarjetaBase: (colorEstado) => ({
         padding: 2,
-        backgroundColor: '#ffffff', // 1e293b
+        backgroundColor: '#ffffff',
         borderLeft: `4px solid ${colorEstado}`,
         color: '#000000',
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '200px',
-        height: '85%',
-        flex: 1,
+        justifyContent: 'center', // Centra el contenido verticalmente
+        width: '100%',            // Ocupa el 100% del espacio del Grid asignado
+        height: '100%',           // Se estira para igualar a sus compañeras de fila
+        borderRadius: '12px',     // Consistencia con el diseño de Paper
+        boxSizing: 'border-box'
     }),
     contenedorEncabezado: {
         display: 'flex',
@@ -23,6 +25,7 @@ export const estilosStatus = {
         backgroundColor: colorEstado,
     }),
     textoCantidad: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: { xs: '1.2rem', md: '1.5rem' } // Tamaño de fuente responsivo
     }
 };

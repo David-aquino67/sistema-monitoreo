@@ -1,24 +1,25 @@
 export const estilosResumen = {
     contenedorPrincipal: {
-        padding: 3,
-        backgroundColor: '#ffffff', //1a2332
+        padding: { xs: 2, sm: 3 },
+        backgroundColor: '#ffffff',
         color: '#000000',
         borderRadius: '12px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        minWidth: '350px',
-        height: '85%'
+        width: '100%',
+        height: '100%',
+        boxSizing: 'border-box'
     },
     tituloSeccion: {
         color: '#94a3b8',
         textTransform: 'uppercase',
         letterSpacing: 1,
-        fontSize: '0.75rem',
+        fontSize: { xs: '0.65rem', sm: '0.75rem' },
         fontWeight: 'bold'
     },
     valorGrande: {
-        fontSize: '2.5rem',
+        fontSize: { xs: '1.8rem', sm: '2.5rem' },
         fontWeight: 'bold',
         lineHeight: 1.2,
         mt: 1
