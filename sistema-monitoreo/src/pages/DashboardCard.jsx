@@ -9,6 +9,7 @@ import { echo } from '@lib/echo.js';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton, Stack } from '@mui/material';
+import { dashboard } from '@styles/page/Dashboard.jsx'
 
 const DashboardCard = ({ toggleTheme, isDarkMode }) => {
     const { servidores, loading: loadingData, refrescar, setServidores } = useObtenerServidores();
@@ -34,7 +35,7 @@ const DashboardCard = ({ toggleTheme, isDarkMode }) => {
 
     if (loadingData) {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', p: 10 }}>
+            <Box sx={dashboard.Noloadigncircularpogres}>
                 <CircularProgress />
             </Box>
         );
@@ -43,10 +44,10 @@ const DashboardCard = ({ toggleTheme, isDarkMode }) => {
     return (
         <Box sx={{ p: 4 }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
-                <Typography variant="h4" sx={{ fontWeight: 'bold', fontSize: { xs: '1.1rem', sm: '1.25rem' } }}>
+                <Typography variant="h4" sx={dashboard.TituloPrincipal}>
                     Monitoreo SIMF (Tiempo Real)
                 </Typography>
-                <IconButton onClick={toggleTheme} color="inherit" sx={{ border: '1px solid', borderColor: 'divider' }}>
+                <IconButton onClick={toggleTheme} color="inherit" sx={dashboard.IconoParaTema}>
                     {isDarkMode ? <LightModeIcon sx={{ color: '#ffeb3b' }} /> : <DarkModeIcon />}
                 </IconButton>
             </Stack>
