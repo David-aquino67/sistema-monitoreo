@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import StatusCard from '@components/StatusCard/StatusCard.jsx';
 import { StatusMetrics } from '@components/StatusCard/StatusMetrics.jsx';
 import { BotonesCard } from '@components/StatusCard/BotonesCard.jsx';
@@ -8,9 +8,9 @@ import AlertaServidor from '@components/StatusCard/AlertaServidor.jsx';
 
 export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, execute }) => {
     return (
-        <Grid container spacing={8} alignItems={"stretch"}>
+        <Grid container spacing={3} alignItems={"stretch"}>
             {servidores?.map((srv) => (
-                <Grid item xs={12} sm={6} lg={4} key={srv.id} sx={{ display: 'flex' }}>
+                <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={srv.id} sx={{ display: 'flex' }}>
                     <StatusCard
                         key={srv.id}
                         title={srv.titulo}
