@@ -8,7 +8,7 @@ function App() {
     return (
         <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
             <CssBaseline />
-            <DashboardCard toggleTheme={() => setIsDarkMode(!isDarkMode)} isDarkMode={isDarkMode} />
+            <DashboardPage toggleTheme={() => setIsDarkMode(!isDarkMode)} isDarkMode={isDarkMode} />
         </ThemeProvider>
     );
 }
