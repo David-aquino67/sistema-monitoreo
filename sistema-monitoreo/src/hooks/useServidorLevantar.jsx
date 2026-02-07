@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { actualizarEstadoServidor } from '@api/actualizarEstadoServidor';
 
-export const useServidorLevantar = (execute, refrescar) => {
+export const useServidorLevantar = (execute) => {
     const [success, setSuccess] = useState(false);
     useEffect(() => {
         if (success) {
@@ -11,14 +11,11 @@ export const useServidorLevantar = (execute, refrescar) => {
     }, [success]);
 
     const manejarLevantar = async (id) => {
-        await execute(async () => {
+        await execute(id, async () => {
             try {
                 await actualizarEstadoServidor(id, 'online');
-                if (refrescar) {
-                    await refrescar();
-                }
                 setSuccess(true);
-                console.log('Servidor ${id} levantado con éxito.');
+                console.log(`Servidor ${id} levantado con éxito.`);
             } catch (error) {
                 console.error("Error al levantar servidor:", error);
                 setSuccess(false);
