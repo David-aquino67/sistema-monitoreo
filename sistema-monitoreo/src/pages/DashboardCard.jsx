@@ -10,6 +10,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton, Stack } from '@mui/material';
 import { dashboard } from '@styles/page/Dashboard.jsx'
+import { Stack1 } from '@const/page/dashboard.jsx'
 
 const DashboardCard = ({ toggleTheme, isDarkMode }) => {
     const { servidores, loading: loadingData, refrescar, setServidores } = useObtenerServidores();
@@ -42,8 +43,8 @@ const DashboardCard = ({ toggleTheme, isDarkMode }) => {
     }
 
     return (
-        <Box sx={{ p: 4 }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
+        <Box sx={dashboard.boxpadre}>
+            <Stack {...Stack1} sx={{ mb: 4 }}>
                 <Typography variant="h4" sx={dashboard.TituloPrincipal}>
                     Monitoreo SIMF (Tiempo Real)
                 </Typography>

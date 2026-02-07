@@ -14,5 +14,9 @@ export const dashboard ={
     IconoParaTema:{
         border: '1px solid',
         borderColor: 'divider'
+    },
+    boxpadre:{
+        p:4
     }
 }
+
