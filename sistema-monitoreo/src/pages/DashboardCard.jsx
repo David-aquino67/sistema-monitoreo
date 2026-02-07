@@ -6,8 +6,11 @@ import { SeccionResumen } from '@components/SeccionResumen';
 import { ListadoServidores } from '@components/ListadoServidores.jsx';
 import { useServidorLevantar } from "@hooks/useServidorLevantar.jsx";
 import { echo } from '@lib/echo.js';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { IconButton, Stack } from '@mui/material';
 
-const DashboardCard = () => {
+const DashboardCard = ({ toggleTheme, isDarkMode }) => {
     const { servidores, loading: loadingData, refrescar, setServidores } = useObtenerServidores();
     const { loadingId, execute } = useStatusActions();
     const { manejarLevantar } = useServidorLevantar(execute, refrescar);
@@ -39,9 +42,14 @@ const DashboardCard = () => {
 
     return (
         <Box sx={{ p: 4 }}>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 4 }}>
-                Monitoreo SIMF (Tiempo Real)
-            </Typography>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
+                <Typography variant="h4" sx={{ fontWeight: 'bold', fontSize: { xs: '1.1rem', sm: '1.25rem' } }}>
+                    Monitoreo SIMF (Tiempo Real)
+                </Typography>
+                <IconButton onClick={toggleTheme} color="inherit" sx={{ border: '1px solid', borderColor: 'divider' }}>
+                    {isDarkMode ? <LightModeIcon sx={{ color: '#ffeb3b' }} /> : <DarkModeIcon />}
+                </IconButton>
+            </Stack>
 
             <SeccionResumen servidores={servidores} />
 
