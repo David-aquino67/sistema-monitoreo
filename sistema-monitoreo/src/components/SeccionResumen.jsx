@@ -1,6 +1,12 @@
 import { Grid} from '@mui/material';
 import ResumenServidores from '@components/ResumenServidores/ResumenServidores.jsx';
 import StatusResume from '@components/StatusResume/StatusResume.jsx';
+import {GridPadre,
+    GridResumenServidores,
+    GridPadreStatusResumen,
+    GridHijoStatusResumen,
+    GridStatusResume} from '@const/SeccionResumen.jsx'
+import {SeccionResumenStyle} from '@styles/SeccionResumen.jsx'
 
 export const SeccionResumen = ({ servidores = [] }) => {
     const conteo = {
@@ -12,22 +18,22 @@ export const SeccionResumen = ({ servidores = [] }) => {
     };
 
     return (
-        <Grid container spacing={2} sx={{ mb: 4 }} alignItems="stretch">
-            <Grid size={{ xs: 12, md: 3 }}>
+        <Grid {...GridPadre} sx={ SeccionResumenStyle.gridpadre }>
+            <Grid size={GridResumenServidores}>
                 <ResumenServidores total={conteo.total} />
             </Grid>
-            <Grid size={{ xs: 12, md: 9 }}>
-                <Grid container spacing={2} height="100%">
-                    <Grid size={{ xs: 6, sm: 3 }}>
+            <Grid size={GridPadreStatusResumen}>
+                <Grid {...GridHijoStatusResumen}>
+                    <Grid size={GridStatusResume}>
                         <StatusResume quantity={conteo.online} status="online" />
                     </Grid>
-                    <Grid size={{ xs: 6, sm: 3 }}>
+                    <Grid size={GridStatusResume}>
                         <StatusResume quantity={conteo.warning} status="warning" />
                     </Grid>
-                    <Grid size={{ xs: 6, sm: 3 }}>
+                    <Grid size={GridStatusResume}>
                         <StatusResume quantity={conteo.maintenance} status="maintenance" />
                     </Grid>
-                    <Grid size={{ xs: 6, sm: 3 }}>
+                    <Grid size={GridStatusResume}>
                         <StatusResume quantity={conteo.offline} status="offline" />
                     </Grid>
                 </Grid>
