@@ -23,5 +23,10 @@ export const estilosResumen = {
         fontWeight: 'bold',
         lineHeight: 1.2,
         mt: 1
+    },
+    icono:{
+         fontSize: { xs: 32, sm: 48 },
+                color: 'text.primary',
+                opacity: 0.8
     }
 };
