@@ -2,21 +2,21 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DangerousIcon from '@mui/icons-material/Dangerous'; 
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-
+import { StatusIconsStyle } from '@styles/ResumenServidoresStyle/StatusIcons.jsx';
 const StatusIcons = ({ status }) => {
     return (
         <>
             {status === 'warning' && (
-                <WarningIcon sx={{ color: '#f59e0b', fontSize: '1.5rem', ml: 1 }} />
+                <WarningIcon sx={StatusIconsStyle.WarningIcon} />
             )}
             {status === 'maintenance' && (
-                <ConstructionIcon sx={{ color: '#3b82f6', fontSize: '1.5rem', ml: 1 }} />
+                <ConstructionIcon sx={StatusIconsStyle.MaintenanceIcon} />
             )}
             {status === 'offline' && (
-                <DangerousIcon sx={{ color: '#ef4444', fontSize: '1.5rem', ml: 1 }} />
+                <DangerousIcon sx={StatusIconsStyle.OfflineIcon} />
             )}
             {status === 'online' && (
-                <AutoGraphIcon sx={{ color: '#10b981', fontSize: '1.5rem', ml: 1 }} />
+                <AutoGraphIcon sx={StatusIconsStyle.OnlineIcon} />
             )}
         </>
     );
