@@ -1,9 +1,9 @@
 export const estilosStatus = {
     tarjetaBase: (colorEstado) => ({
         padding: 2,
-        backgroundColor: '#ffffff',
+        backgroundColor: 'background.paper',
         borderLeft: `4px solid ${colorEstado}`,
-        color: '#000000',
+        color: 'text.primary',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

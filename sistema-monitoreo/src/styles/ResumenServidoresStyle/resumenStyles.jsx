@@ -1,8 +1,8 @@
 export const estilosResumen = {
     contenedorPrincipal: {
         padding: { xs: 2, sm: 3 },
-        backgroundColor: '#ffffff',
-        color: '#000000',
+        backgroundColor: 'background.paper',
+        color: 'text.primary',
         borderRadius: '12px',
         display: 'flex',
         justifyContent: 'space-between',

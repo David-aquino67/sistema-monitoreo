@@ -3,7 +3,6 @@ export const cardStyles = {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        minHeight: '300px', // Altura mínima consistente
         justifyContent: 'space-between',
         minWidth: 275,
         boxShadow: 3,
