@@ -1,20 +1,20 @@
 import { Box, Typography } from '@mui/material';
 import { horaFormateada } from '@helpers/formateo';
 import { metricstyle } from '@styles/Statuscard/stylemetrics';
-
+import { typografyConstTitulo, typografy2 } from '@const/StatusMetricsConst.jsx';
 export const StatusMetrics = ({ uptime, latency, lastPing }) => (
     <Box sx={metricstyle.metricsContainer}>
         <Box>
-            <Typography variant="caption" color="text.secondary" display="block">Uptime</Typography>
-            <Typography variant="body2" fontWeight="bold">{uptime}</Typography>
+            <Typography {...typografyConstTitulo}>Uptime</Typography>
+            <Typography {...typografy2}>{uptime}</Typography>
         </Box>
         <Box>
-            <Typography variant="caption" color="text.secondary" display="block">Latencia</Typography>
-            <Typography variant="body2" fontWeight="bold">{latency}</Typography>
+            <Typography {...typografyConstTitulo}>Latencia</Typography>
+            <Typography {...typografy2}>{latency}</Typography>
         </Box>
         <Box sx={metricstyle.fullWidthMetric}>
-            <Typography variant="caption" color="text.secondary" display="block">Último reporte</Typography>
-            <Typography variant="body2" fontWeight="bold">{horaFormateada(lastPing)}</Typography>
+            <Typography {...typografyConstTitulo}>Último reporte</Typography>
+            <Typography {...typografy2}>{horaFormateada(lastPing)}</Typography>
         </Box>
     </Box>
 );

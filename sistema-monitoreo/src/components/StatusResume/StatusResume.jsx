@@ -9,10 +9,7 @@ const StatusResume = ({ quantity = 0, status = 'online' }) => {
     return (
         <Paper elevation={2} sx={estilosStatus.tarjetaBase(config.color)}>
             <Box sx={estilosStatus.contenedorEncabezado}>
-                <Typography
-                    variant="caption"
-                    sx={estilosStatus.typografyStyle(config.color)}
-                >
+                <Typography variant="caption" sx={estilosStatus.typografyStyle(config.color)}>
                     {config.etiqueta}
                 </Typography>
                 <StatusIcons status={status} />
