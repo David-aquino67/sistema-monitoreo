@@ -4,11 +4,12 @@ import { StatusMetrics } from '@components/StatusCard/StatusMetrics.jsx';
 import { BotonesCard } from '@components/StatusCard/BotonesCard.jsx';
 import { fecha, latencia } from '@helpers/formateo.jsx';
 import AlertaServidor from '@components/StatusCard/AlertaServidor.jsx';
-
+import { ListadoServidoresStyle } from '@styles/ListadoServidoresStyle.jsx';
+import { GridPadreListServidoresConst } from '@const/ListadoServidoresConst.jsx';
 
 export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, execute }) => {
     return (
-        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} alignItems={"stretch"} sx={{ width: '100%', margin: 0 }}>
+        <Grid {...GridPadreListServidoresConst} sx={ListadoServidoresStyle.GriPadreListServidores}>
             {servidores?.map((srv) => (
                 <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={srv.id} sx={{ display: 'flex' }}>
                     <StatusCard
@@ -16,7 +17,7 @@ export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, exec
                         title={srv.titulo}
                         place={srv.ubicacion}
                         status={srv.estado}
-                        sx={{ width: '100%', display: 'flex', flexDirection: 'column', minHeight: '100%' }}
+                        sx={ListadoServidoresStyle.StatusCardListServidores}
                         Alerta={<AlertaServidor servidores={srv.estado} />}
                         footer={
                             <BotonesCard
