@@ -27,5 +27,11 @@ export const estilosStatus = {
     textoCantidad: {
         fontWeight: 'bold',
         fontSize: { xs: '1.2rem', md: '1.5rem' }
-    }
+    },
+    typografyStyle:(colorEstado) => ({
+        color: colorEstado, 
+        fontWeight: 'bold', 
+        textTransform: 'uppercase', 
+        fontSize: { xs: '0.6rem', md: '0.75rem'}
+    })
 };
