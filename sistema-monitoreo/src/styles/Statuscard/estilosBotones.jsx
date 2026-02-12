@@ -10,11 +10,12 @@ export const estilosBotones = {
   borderRadius: '8px',
   textTransform: 'none',
   transition: 'all 0.3s ease',
+  color:"text.primary",
   bgcolor: success ? green[700] : green[500],   
   '&:hover': { bgcolor: success ? green[800] : green[600] }, 
 }),
     progresoCircular: {
-        color: "warning",
+        color: "success.main",
         position: 'absolute',
         top: '50%',
         left: '50%',

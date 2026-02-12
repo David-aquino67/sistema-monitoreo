@@ -37,12 +37,12 @@ export const BotonesCard = ({ loading, estado, onLevantar, id, onReboot, onReset
                 </Button>
             )}
             {onReset && (
-                <Button size="small" variant="outlined" color="secondary" disabled={loading} onClick={onReset}>
+                <Button size="small" variant="contained" sx= {{color:"primary.main", backgroundColor:"primary.contrastText"}} disabled={loading} onClick={onReset}>
                     Restablecer
                 </Button>
             )}
             {onClean && (
-                <Button size="small" variant="outlined" color="warning" disabled={loading} onClick={onClean}>
+                <Button size="small" variant="contained" sx= {{color:"secondary.main", backgroundColor:"secondary.contrastText"}} disabled={loading} onClick={onClean}>
                     Limpieza
                 </Button>
             )}
