@@ -1,37 +1,30 @@
 export const estilosStatus = {
-    tarjetaBase: (colorEstado) => ({
+    tarjetaBase: (tipo) => ({
         padding: 2,
-        backgroundColor: 'background.paper',
-        borderLeft: `4px solid ${colorEstado}`,
-        color: 'text.primary',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        width: '100%',
-        height: '100%',
-        borderRadius: '12px',
-        boxSizing: 'border-box'
+        bgcolor: 'background.paper',
+        borderRadius: 3,
+        border: '1px solid',
+        borderColor: 'divider',
+        borderLeft: '6px solid',
+        borderLeftColor: `${tipo}.main`,
+        transition: 'transform 0.2s',
+        '&:hover': { transform: 'translateY(-4px)' }
     }),
+    typografyStyle: (tipo) => ({
+        color: `${tipo}.main`,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        fontSize: '0.75rem'
+    }),
+    textoCantidad: {
+        fontWeight: 'bold',
+        fontSize: '1.8rem',
+        color: 'text.primary'
+    },
     contenedorEncabezado: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         mb: 1
-    },
-    indicador: (colorEstado) => ({
-        width: '8px',
-        height: '8px',
-        borderRadius: '50%',
-        backgroundColor: colorEstado,
-    }),
-    textoCantidad: {
-        fontWeight: 'bold',
-        fontSize: { xs: '1.2rem', md: '1.5rem' }
-    },
-    typografyStyle:(colorEstado) => ({
-        color: colorEstado, 
-        fontWeight: 'bold', 
-        textTransform: 'uppercase', 
-        fontSize: { xs: '0.6rem', md: '0.75rem'}
-    })
+    }
 };

@@ -5,20 +5,22 @@ import { estilosStatus } from '@styles/StatusResume/StatusResume.jsx';
 import StatusIcons from '@components/ResumenServidores/StatusIcons.jsx';
 
 const StatusResume = ({ quantity = 0, status = 'online' }) => {
-    const config = mapaEstados[status] || { color: '#ccc', etiqueta: 'Desconocido' };
+    const config = mapaEstados[status] || { color: 'grey', etiqueta: 'Desconocido' };
     return (
-        <Paper elevation={2} sx={estilosStatus.tarjetaBase(config.color)}>
+        <Paper
+            elevation={0}
+            sx={estilosStatus.tarjetaBase(config.color)}
+        >
             <Box sx={estilosStatus.contenedorEncabezado}>
-                <Typography variant="caption" sx={estilosStatus.typografyStyle(config.color)}>
+                <Typography sx={estilosStatus.typografyStyle(config.color)}>
                     {config.etiqueta}
                 </Typography>
                 <StatusIcons status={status} />
             </Box>
 
-            <Typography variant="h5" sx={estilosStatus.textoCantidad}>
+            <Typography sx={estilosStatus.textoCantidad}>
                 {quantity}
             </Typography>
-            
         </Paper>
     );
 };
