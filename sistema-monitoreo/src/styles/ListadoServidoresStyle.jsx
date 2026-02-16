@@ -1,7 +1,7 @@
 export const ListadoServidoresStyle = {
     GriPadreListServidores: {
         width: '100%', 
-        margin: 0 
+        marginTop: 2
     },
     StatusCardListServidores: {
         width: '100%', 
