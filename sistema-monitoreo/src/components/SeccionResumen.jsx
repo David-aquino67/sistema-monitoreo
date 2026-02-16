@@ -7,16 +7,10 @@ import {GridPadre,
     GridHijoStatusResumen,
     GridStatusResume} from '@const/SeccionResumen.jsx'
 import {SeccionResumenStyle} from '@styles/SeccionResumen.jsx'
+import {calcularResumenServidores} from "@/const/ConstSeccionResumen.jsx";
 
 export const SeccionResumen = ({ servidores = [] }) => {
-    const conteo = {
-        total: servidores.length,
-        online: servidores.filter(s => s.estado === 'online').length,
-        warning: servidores.filter(s => s.estado === 'warning').length,
-        offline: servidores.filter(s => s.estado === 'offline').length,
-        maintenance: servidores.filter(s => s.estado === 'maintenance').length,
-    };
-
+    const conteo = calcularResumenServidores(servidores);
     return (
         <Grid {...GridPadre} sx={ SeccionResumenStyle.gridpadre }>
             <Grid size={GridResumenServidores}>
