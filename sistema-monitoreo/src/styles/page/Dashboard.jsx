@@ -1,22 +1,34 @@
-export const dashboard ={
-    Noloadigncircularpogres:{
+export const dashboard = {
+    Noloadigncircularpogres: {
         display: 'flex',
         justifyContent: 'center',
-        p: 10
+        alignItems: 'center',
+        minHeight: '50vh',
+        p: 10,
+        color: 'primary.main'
     },
-    TituloPrincipal:{
+    TituloPrincipal: {
         fontWeight: 'bold',
+        color: 'text.primary',
         fontSize: {
-            xs: '1.1rem',
-            sm: '1.25rem'
+            xs: '1.5rem',
+            sm: '2rem'
+        },
+        letterSpacing: '-0.02em'
+    },
+    IconoParaTema: {
+        border: '1px solid',
+        borderColor: 'divider',
+        bgcolor: 'background.paper',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+            bgcolor: 'action.hover',
         }
     },
-    IconoParaTema:{
-        border: '1px solid',
-        borderColor: 'divider'
-    },
-    boxpadre:{
-        p:4
+    boxpadre: {
+        p: { xs: 2, md: 4 },
+        minHeight: '100vh',
+        bgcolor: 'background.default',
+        transition: 'background-color 0.3s ease'
     }
 }
-
