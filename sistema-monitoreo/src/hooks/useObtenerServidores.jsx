@@ -22,5 +22,11 @@ export const useObtenerServidores = () => {
         consultarAPI();
     }, [consultarAPI]);
 
-   return { servidores, cargando, error, refrescar: consultarAPI };
+    return { 
+        servidores, 
+        setServidores, // <--- Vital para el tiempo real
+        cargando, 
+        error, 
+        refrescar: consultarAPI 
+    };
 };
