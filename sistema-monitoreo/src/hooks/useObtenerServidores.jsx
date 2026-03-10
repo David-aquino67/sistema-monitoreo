@@ -24,7 +24,7 @@ export const useObtenerServidores = () => {
 
     return { 
         servidores, 
-        setServidores, // <--- Vital para el tiempo real
+        setServidores, 
         cargando, 
         error, 
         refrescar: consultarAPI 

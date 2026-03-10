@@ -7,13 +7,13 @@ export const useMonitoreoRealTime = (setServidores) => {
         window.Pusher = Pusher;
 
         const echo = new Echo({
-            broadcaster: 'reverb',
-            key: import.meta.env.VITE_REVERB_APP_KEY,
-            wsHost: import.meta.env.VITE_REVERB_HOST,
-            wsPort: import.meta.env.VITE_REVERB_PORT,
-            forceTLS: false,
-            enabledTransports: ['ws', 'wss'],
-        });
+    broadcaster: 'reverb',
+    key: import.meta.env.VITE_REVERB_APP_KEY,
+    wsHost: import.meta.env.VITE_REVERB_HOTS, 
+    wsPort: import.meta.env.VITE_REVERB_PORT,
+    forceTLS: false,
+    enabledTransports: ['ws', 'wss'],
+});
 
         const channel = echo.channel('status-channel')
             .listen('.server.updated', (data) => {
