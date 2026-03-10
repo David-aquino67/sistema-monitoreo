@@ -1,23 +1,46 @@
 import { useEffect } from 'react';
-import { echo } from '@lib/echo.js';
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
 
-export const useMonitoreoRealTime = (setServidores, refrescar) => {
+export const useMonitoreoRealTime = (setServidores) => {
     useEffect(() => {
-        const channel = echo.channel('monitoreo-global');
+        window.Pusher = Pusher;
 
-        channel.listen('.servidor.cambio', (data) => {
-            console.log('¡Actualización recibida!', data.servidor);
-            if (setServidores) {
-                setServidores(prev => prev.map(s =>
-                    s.id === data.servidor.id ? data.servidor : s
-                ));
-            } else {
-                refrescar();
-            }
+        const echo = new Echo({
+            broadcaster: 'reverb',
+            key: import.meta.env.VITE_REVERB_APP_KEY,
+            wsHost: import.meta.env.VITE_REVERB_HOST,
+            wsPort: import.meta.env.VITE_REVERB_PORT,
+            forceTLS: false,
+            enabledTransports: ['ws', 'wss'],
         });
 
+        const channel = echo.channel('status-channel')
+            .listen('.server.updated', (data) => {
+                const nuevosEstados = data.payload;
+                setServidores((prevServidores) => {
+                    const servidoresActualizados = [...prevServidores];
+                    nuevosEstados.forEach((nuevoEstado) => {
+                        const index = servidoresActualizados.findIndex(
+                            (s) => s.id === nuevoEstado.unidad_id 
+                        );
+                        if (index !== -1) {
+                            servidoresActualizados[index] = {
+                                ...servidoresActualizados[index],
+                                online: nuevoEstado.online,
+                                latencia: nuevoEstado.latencia,
+                                fecha_actualizacion: nuevoEstado.fecha
+                            };
+                        }
+                    });
+
+                    return servidoresActualizados;
+                });
+            });
+
         return () => {
-            echo.leaveChannel('monitoreo-global');
+            channel.stopListening('.server.updated');
+            echo.leaveChannel('status-channel');
         };
-    }, [refrescar, setServidores]);
+    }, [setServidores]); 
 };
