@@ -25,9 +25,9 @@ export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, exec
                                 estado={srv.estado}
                                 loading={loadingId === srv.id}
                                 onLevantar={() => manejarLevantar(srv.id)}
-                                onReboot={srv.permisos.reiniciar ? () => execute(srv.id, () => console.log("Reinicio", srv.id)) : null}
-                                onReset={srv.permisos.restablecer ? () => execute(srv.id, () => console.log("Reset", srv.id)) : null}
-                                onClean={srv.permisos.limpiar ? () => execute(srv.id, () => console.log("Limpieza", srv.id)) : null}
+                                onReboot={srv.permisos?.reiniciar ? () => execute(srv.id, () => console.log("Reinicio")) : null}
+                                onReset={srv.permisos?.restablecer ? () => execute(srv.id, () => console.log("Reset")) : null}
+                                onClean={srv.permisos?.limpiar ? () => execute(srv.id, () => console.log("Limpieza")) : null}
                             />
                         }
                     >
