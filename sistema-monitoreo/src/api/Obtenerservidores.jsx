@@ -2,7 +2,7 @@ import clienteApi from '@api/configuracionApi/configuracionApi';
 
 export const obtenerServidores = async () => {
     try {
-        const respuesta = await clienteApi.get('http://127.0.0.1:8000/api/servidores');
+        const respuesta = await clienteApi.get('http://127.0.0.1:8001/api/servidores');
         return respuesta.data;
     } catch (error) {
         const mensajeError = error.response?.data?.message || 'Error al conectar con la API de la OOMS';
