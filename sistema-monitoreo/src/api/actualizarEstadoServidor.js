@@ -2,7 +2,7 @@ import clienteApi from '@api/configuracionApi/configuracionApi.js';
 
 export const actualizarEstadoServidor = async (id, nuevoEstado) => {
     try {
-        const respuesta = await clienteApi.patch(`http://127.0.0.1:8000/api/servidores/${id}/levantar`, {
+        const respuesta = await clienteApi.patch(`/servidores/${id}/levantar`, {
             estado: nuevoEstado
         });
         return respuesta.data;
