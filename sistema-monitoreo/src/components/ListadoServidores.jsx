@@ -14,20 +14,20 @@ export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, exec
                 <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={srv.id} sx={{ display: 'flex' }}>
                     <StatusCard
                         key={srv.id}
-                        title={srv.titulo}
-                        place={srv.ubicacion}
-                        status={srv.estado}
+                        title={srv.nombre}
+                        place={`Unidad: ${srv.unidad_id}`}
+                        status={srv.online}
                         sx={ListadoServidoresStyle.StatusCardListServidores}
                         Alerta={<AlertaServidor servidores={srv.estado} />}
                         footer={
                             <BotonesCard
                                 id={srv.id}
-                                estado={srv.estado}
+                                estado={srv.online}
                                 loading={loadingId === srv.id}
                                 onLevantar={() => manejarLevantar(srv.id)}
-                                onReboot={srv.permisos?.reiniciar ? () => execute(srv.id, () => console.log("Reinicio")) : null}
-                                onReset={srv.permisos?.restablecer ? () => execute(srv.id, () => console.log("Reset")) : null}
-                                onClean={srv.permisos?.limpiar ? () => execute(srv.id, () => console.log("Limpieza")) : null}
+                                onReboot={() => execute(srv.id, () => console.log("Iniciando Reinicio..."))}
+                                onReset={() => execute(srv.id, () => console.log("Iniciando Restablecimiento..."))}
+                                onClean={() => execute(srv.id, () => console.log("Iniciando Limpieza..."))}
                             />
                         }
                     >
