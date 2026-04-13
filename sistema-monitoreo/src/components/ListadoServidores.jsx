@@ -33,9 +33,9 @@ export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, exec
                     >
                         <div style={{flexGrow: 1}}>
                         <StatusMetrics
-                            uptime={fecha(srv.tiempoActividad)}
+                            uptime={fecha(srv.fecha)}
                             latency={latencia(srv.latencia)}
-                            lastPing={new Date(srv.ultimoPing)}
+                            lastPing={new Date(srv.fecha)}
                         />
                     </div>
                     </StatusCard>
