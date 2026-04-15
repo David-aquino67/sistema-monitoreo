@@ -9,7 +9,7 @@ export const useMonitoreoRealTime = (setServidores) => {
         const echo = new Echo({
     broadcaster: 'reverb',
     key: import.meta.env.VITE_REVERB_APP_KEY,
-    wsHost: import.meta.env.VITE_REVERB_HOTS, 
+    wsHost: import.meta.env.VITE_REVERB_HOST, 
     wsPort: import.meta.env.VITE_REVERB_PORT,
     forceTLS: false,
     enabledTransports: ['ws', 'wss'],
@@ -21,9 +21,7 @@ export const useMonitoreoRealTime = (setServidores) => {
                 setServidores((prevServidores) => {
                     const servidoresActualizados = [...prevServidores];
                     nuevosEstados.forEach((nuevoEstado) => {
-                        const index = servidoresActualizados.findIndex(
-                            (s) => s.id === nuevoEstado.unidad_id 
-                        );
+                        const index = servidoresActualizados.findIndex(s => s.id === nuevoEstado.id);
                         if (index !== -1) {
                             servidoresActualizados[index] = {
                                 ...servidoresActualizados[index],
