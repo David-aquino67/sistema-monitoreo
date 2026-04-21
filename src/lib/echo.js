@@ -5,10 +5,10 @@ window.Pusher = Pusher;
 
 export const echo = new Echo({
     broadcaster: 'reverb',
-    key: import.meta.env.VITE_REVERB_APP_KEY || 'enh8pmyajbp8m6qvbgmv',
-    wsHost: import.meta.env.VITE_REVERB_HOST || 'localhost',
-    wsPort: import.meta.env.VITE_REVERB_PORT || 8080,
-    forceTLS: false,
+    key: import.meta.env.VITE_REVERB_APP_KEY,
+    wsHost: import.meta.env.VITE_REVERB_HOST,
+    wsPort: import.meta.env.VITE_REVERB_PORT,
+    wssPort: import.meta.env.VITE_REVERB_PORT,
+    forceTLS: import.meta.env.VITE_FORCE_TLS,
     enabledTransports: ['ws', 'wss'],
 });
-console.log("Mi llave de Reverb es:", import.meta.env.VITE_REVERB_APP_KEY);
