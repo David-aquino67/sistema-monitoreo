@@ -1,53 +1,16 @@
-# Sistema de Monitoreo y Acciones Rápidas para SIMF
-## Contexto:
-La Oficina de Operación y Mesa de Servicios (OOMS) de la Coordinación de Informática tiene la responsabilidad de asegurar la disponibilidad del Sistema de Información de Medicina Familiar (SIMF) 
-## Problematica:
-Actualmente, la OOMS utiliza una interfaz de gestión local basada en HTML, desplegada en el servidor, que centraliza diversos scripts de restablecimiento para cada Unidad de Medicina Familiar (UMF).
-### Objetivo general:
-Transformar la interfaz estática de gestión de scripts de acciones del sistema SIMF en una aplicación web moderna y responsiva
-## Caracteristicas Principales
-* Framework:
-    * React
-    * React DOM
-    *  Vite
-* 
-## Instalación
-1. **Clonar el repositorio**
+# React + Vite
 
-   ```bash
-   git clone <https://github.com/imssci/smars_frontend.git>
-   cd <sistema-monitoreo>
-   ```
-2. **Instalar dependencias**
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-   ```bash
-   npm install
-   ```
-   ## Iniciar el proyecto
+Currently, two official plugins are available:
 
-3. **Iniciar el servidor**
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-   ```bash
-   npm run dev
-   ```
+## React Compiler
 
-   - El servidor se ejecutará en ` http://localhost:5173`.
-## Estructura del proyecto
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-````
-├── src/
-│   ├── App.jsx/          # Endpoints
-|   ├── main.jsx/         # Montaje
-│   ├── const/            # Constantes de uso general del sistema
-│   ├── public/           # Elementos publicos, normamelte solo el favicon
-│   ├── assets/           # Imagenes/iconos/componentes graficos de uso general
-|   ├── api/              # hooks que concentran llamadas a la api que se usen en toda la apliacion con async/await y axios
-|   ├── helpers           # Funciones o clasesa de js puro que se usen a lo largo de todo el sistema
-|   ├── components        # Componentes de usi general en el sistema
-│   ├── contexts          # Conxtos de uso general en el sistema
-|   ├── hooks             # hooks de usop general
-|   ├── styles            # Estilos de uso general
-├── .env                  # Variables de entorno (Crear)
-├── .gitignore            # Archivos a ignorar
-└── README.md             # Este archivo
-```<>
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
