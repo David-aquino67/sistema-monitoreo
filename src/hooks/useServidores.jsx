@@ -36,10 +36,8 @@ export const useServidores = () => {
     }, [cargarServidores]);
 
     useEffect(() => {
-        console.log("SUSCRIBIENDO AL CANAL");
         const channel = echo.channel('status-channel');
         channel.listen('.server.updated', (data) => {
-            console.log("DATOS RECIBIDOS:", data);
             const nuevosDatos = data.payload || data;
 
             setServidores((prevServidores) => {
@@ -57,7 +55,6 @@ export const useServidores = () => {
         });
 
         return () => {
-            console.log("Limpiando suscripción");
             echo.leaveChannel('status-channel');
         };
     }, []); 
