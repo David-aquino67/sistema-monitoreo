@@ -1,17 +1,23 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
-import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import { useLocation, useNavigate } from 'react-router-dom';
+
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import favicon from '@/assets/favicon.png';
 import { menuStyles } from '@/styles/Menu';
-import { menuItems } from '@/const/menu';
-import { useThemeContext } from '@/contexts/ThemeContext';
+import { MenuDesktop } from './MenuDesktop';
+import { MenuMobile } from './MenuMobile';
+import { useMenuLogic } from '@/hooks/useMenuLogic';
 
 export default function Menu() {
-	const navigate = useNavigate();
-	const location = useLocation();
 	const styles = menuStyles;
-	const { isDarkMode, toggleTheme } = useThemeContext();
+	const {
+		location,
+		navigate,
+		isDarkMode,
+		toggleTheme,
+		isMobile,
+		drawerOpen,
+		handleDrawerToggle,
+		handleNavClick,
+	} = useMenuLogic();
 
 	return (
 		<AppBar position='sticky' sx={styles.appBar}>
@@ -22,37 +28,23 @@ export default function Menu() {
 						SMARS
 					</Typography>
 				</Box>
-
-				<Box sx={styles.navSection}>
-					<Box sx={styles.nav}>
-						{menuItems.map((item) => {
-							const isActive = location.pathname === item.path;
-
-							return (
-								<Tooltip key={item.path} title={item.disabled ? 'Disponible próximamente' : ''}>
-									<span>
-										<Button
-											disabled={item.disabled}
-											size='small'
-											variant={isActive ? 'contained' : 'text'}
-											color={isActive ? 'primary' : 'inherit'}
-											onClick={() => navigate(item.path)}
-											sx={styles.navButton}
-										>
-											{item.label}
-										</Button>
-									</span>
-								</Tooltip>
-							);
-						})}
-					</Box>
-
-					<Tooltip title={isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}>
-						<IconButton onClick={toggleTheme} sx={styles.themeButton} size='small'>
-							{isDarkMode ? <LightModeRoundedIcon fontSize='small' /> : <DarkModeRoundedIcon fontSize='small' />}
-						</IconButton>
-					</Tooltip>
-				</Box>
+				{isMobile ? (
+					<MenuMobile
+						location={location}
+						isDarkMode={isDarkMode}
+						toggleTheme={toggleTheme}
+						drawerOpen={drawerOpen}
+						handleDrawerToggle={handleDrawerToggle}
+						handleNavClick={handleNavClick}
+					/>
+				) : (
+					<MenuDesktop
+						location={location}
+						navigate={navigate}
+						isDarkMode={isDarkMode}
+						toggleTheme={toggleTheme}
+					/>
+				)}
 			</Toolbar>
 		</AppBar>
 	);
