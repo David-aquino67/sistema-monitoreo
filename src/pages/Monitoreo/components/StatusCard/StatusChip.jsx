@@ -1,5 +1,5 @@
 import { Chip } from '@mui/material';
-import { STATUS_MAP } from '@const/EstadosCarta';
+import { STATUS_MAP } from '@pages/Monitoreo/const/EstadosCarta';
 
 export const StatusChip = ({ status }) => {
     let statusKey = status;

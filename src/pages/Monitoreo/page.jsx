@@ -1,18 +1,16 @@
 import { Box, CircularProgress } from '@mui/material';
-import { useStatusActions } from '@hooks/useStatusActions';
-import { useObtenerServidores } from '@hooks/useObtenerServidores.jsx';
-import { useServidorLevantar } from "@hooks/useServidorLevantar.jsx";
-import { useMonitoreoRealTime } from "@hooks/useMonitoreoRealTime";
-import { useServidores } from '@hooks/useServidores';
-import { SeccionResumen } from '@components/SeccionResumen';
-import { ListadoServidores } from '@components/ListadoServidores.jsx';
-import { DashboardHeader } from '@components/DashboardHeader.jsx';
-import { dashboard } from '@styles/page/Dashboard.jsx';
+import { SeccionResumen } from './components/SeccionResumen';
+import useObtenerServidores from './hooks/useObtenerServidores';
+// import { useStatusActions } from './hooks/useStatusActions';
+// import { useServidorLevantar } from './hooks/useServidorLevantar.jsx';
+// import { useMonitoreoRealTime } from './hooks/useMonitoreoRealTime';
+// import { ListadoServidores } from './components/ListadoServidores.jsx';
+import { dashboard } from './styles/page/Dashboard.jsx';
 
-export default function MonitoreoPage({ toggleTheme, isDarkMode }) {
-	const { servidores, cargando, refrescar } = useServidores();
-	const { loadingId, execute } = useStatusActions();
-	const { manejarLevantar } = useServidorLevantar(execute, refrescar);
+export default function MonitoreoPage() {
+	const { servidores, cargando, refrescar } = useObtenerServidores();
+	// const { loadingId, execute } = useStatusActions();
+	// const { manejarLevantar } = useServidorLevantar(execute, refrescar);
 
 	if (cargando) {
 		return (
@@ -24,14 +22,14 @@ export default function MonitoreoPage({ toggleTheme, isDarkMode }) {
 
 	return (
 		<Box sx={dashboard.boxpadre}>
-			<DashboardHeader toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+			<DashboardHeader />
 			<SeccionResumen servidores={servidores} />
-			<ListadoServidores
+			{/* <ListadoServidores
 				servidores={servidores}
 				loadingId={loadingId}
 				manejarLevantar={manejarLevantar}
 				execute={execute}
-			/>
+			/>  */}
 		</Box>
 	);
 }

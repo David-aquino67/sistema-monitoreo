@@ -1,6 +1,6 @@
 import { Alert, Card, CardContent } from '@mui/material';
-import { StatusHeader } from '@components/StatusCard/StatusHeader';
-import { cardStyles } from '@styles/Statuscard/styles';
+import { StatusHeader } from '@pages/Monitoreo/components/StatusCard/StatusHeader';
+import { cardStyles } from '@pages/Monitoreo/styles/Statuscard/styles';
 
 const StatusCard = ({ title, place, status, children, footer, Alerta }) => {
     return (

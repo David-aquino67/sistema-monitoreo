@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import { StatusChip } from '@components/StatusCard/StatusChip';
-import { headerstyle } from '@styles/Statuscard/styleheadercard';
+import { StatusChip } from '@pages/Monitoreo/components/StatusCard/StatusChip';
+import { headerstyle } from '@pages/Monitoreo/styles/Statuscard/styleheadercard';
 
 export const StatusHeader = ({ title, status, place }) => (
     <Box sx={{ mb: 2 }}>

@@ -2,7 +2,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DangerousIcon from '@mui/icons-material/Dangerous'; 
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import { StatusIconsStyle } from '@styles/ResumenServidoresStyle/StatusIcons.jsx';
+import { StatusIconsStyle } from '@pages/Monitoreo/styles/ResumenServidoresStyle/StatusIcons.jsx';
 const StatusIcons = ({ status }) => {
     return (
         <>

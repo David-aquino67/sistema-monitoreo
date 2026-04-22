@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useAuthContext} from "@/contexts/AuthContext";
 
-export default function useGlobal() {
+export default function useServidores() {
 	const {apiErrorManager, BASE_URL, authOptions, apiCallStart, apiCallEnd} = useAuthContext();
 
 	async function actualizarEstadoServidor({id, nuevoEstado}) {
@@ -31,5 +31,5 @@ export default function useGlobal() {
 		}
 	}
 
-	return {clearCache, getVersiones, getUltimaVersion, getVersion};
+	return {obtenerServidores, actualizarEstadoServidor};
 }

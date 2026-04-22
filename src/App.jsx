@@ -22,6 +22,7 @@ import UnauthorizedPage from '@/pages/Unauthorized/page';
 import LoginPage from '@/pages/Login/page';
 import HomePage from '@/pages/Home/page';
 import VersionPage from '@/pages/Version/page';
+import MonitoreoPage from '@/pages/Monitoreo/page';
 
 export default function App() {
 	return (
@@ -57,6 +58,16 @@ export default function App() {
 														<PrivateRoute>
 															<Layout>
 																<VersionPage />
+															</Layout>
+														</PrivateRoute>
+													}
+												/>
+												<Route
+													path="/monitoreo"
+													element={
+														<PrivateRoute>
+															<Layout>
+																<MonitoreoPage />
 															</Layout>
 														</PrivateRoute>
 													}
