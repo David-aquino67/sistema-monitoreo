@@ -33,9 +33,9 @@ export const ListadoServidores = ({ servidores, loadingId, execute }) => {
 					>
 						<div style={{ flexGrow: 1 }}>
 							<StatusMetrics
-								uptime={fecha(srv.fecha)}
+								red_router={srv.online_red_router}
 								latency={latencia(srv.latencia)}
-								lastPing={new Date(srv.fecha)}
+								lastPing={srv.fecha}
 							/>
 						</div>
 					</StatusCard>
