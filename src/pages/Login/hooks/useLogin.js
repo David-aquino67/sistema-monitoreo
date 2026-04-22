@@ -42,6 +42,11 @@ export default function useLogin() {
 		return true;
 	}
 
+	function handleSubmit(e) {
+		e.preventDefault();
+		handleLogin();
+	}
+
 	async function handleLogin() {
 		if (!validateInputs()) {
 			return;
@@ -84,5 +89,5 @@ export default function useLogin() {
 		});
 	}
 
-	return {handleLogin, handleForgotPassword, handlePwdChange, handleUserChange, matricula, password, showPassword, toggleShowPassword};
+	return {handleSubmit, handleLogin, handleForgotPassword, handlePwdChange, handleUserChange, matricula, password, showPassword, toggleShowPassword};
 }
