@@ -1,17 +1,11 @@
+import SessionStatusPage from '@/components/SessionStatusPage';
+
 export default function CheckingCredentialsPage() {
-
-	// TODO: Implementar página de espera mientras se validan
-	// las credenciales, puedes incluir textos como:
-
-	// Verificando credenciales y acceso para esta página...
-
-	// o
-
-	// Validando tu sesión, por favor espera...
 	return (
-		<>
-			<h1>Validando tu sesión, por favor espera...</h1>
-		</>
+		<SessionStatusPage
+			title='Validando tu sesión'
+			subtitle='Verificando credenciales y permisos de acceso para esta página. Esto tardará solo unos segundos.'
+			hint='No cierres esta ventana mientras finaliza la validación. Serás redirigido automáticamente cuando el proceso concluya.'
+		/>
 	);
-
 }
