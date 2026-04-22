@@ -7,7 +7,7 @@ import AlertaServidor from '@pages/Monitoreo/components/StatusCard/AlertaServido
 import { ListadoServidoresStyle } from '@pages/Monitoreo/styles/ListadoServidoresStyle.jsx';
 import { GridPadreListServidoresConst } from '@pages/Monitoreo/const/ListadoServidoresConst.jsx';
 
-export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, execute }) => {
+export const ListadoServidores = ({ servidores, loadingId, execute }) => {
 	return (
 		<Grid {...GridPadreListServidoresConst} sx={ListadoServidoresStyle.GriPadreListServidores}>
 			{servidores?.map((srv) => (
@@ -24,7 +24,7 @@ export const ListadoServidores = ({ servidores, loadingId, manejarLevantar, exec
 								id={srv.id}
 								estado={srv.online}
 								loading={loadingId === srv.id}
-								onLevantar={() => manejarLevantar(srv.id)}
+								onLevantar={() => { }}
 								onReboot={() => execute(srv.id, () => console.log("Iniciando Reinicio..."))}
 								onReset={() => execute(srv.id, () => console.log("Iniciando Restablecimiento..."))}
 								onClean={() => execute(srv.id, () => console.log("Iniciando Limpieza..."))}

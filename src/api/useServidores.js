@@ -18,16 +18,13 @@ export default function useServidores() {
 		}
 	}
 
-	async function obtenerServidores({}) {
+	async function obtenerServidores() {
 		const url = `${BASE_URL}/servidores`;
-		apiCallStart();
 		try {
 			const response = await axios.get(url, authOptions);
 			return response.data;
 		} catch (error) {
 			apiErrorManager(error);
-		} finally {
-			apiCallEnd();
 		}
 	}
 

@@ -1,10 +1,8 @@
 import { CardActions, Button, Box, CircularProgress } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { estilosBotones } from '../../styles/Statuscard/estilosBotones.jsx';
-import { useServidorLevantar } from '../../hooks/useServidorLevantar.jsx';
 import CheckIcon from '@mui/icons-material/Check';
 export const BotonesCard = ({ loading, estado, onLevantar, id, onReboot, onReset, onClean }) => {
-	const { manejarLevantar, success } = useServidorLevantar(onLevantar);
 	if (estado === 'offline') {
 		return (
 			<CardActions sx={{ p: 2, pt: 0 }}>
@@ -13,7 +11,7 @@ export const BotonesCard = ({ loading, estado, onLevantar, id, onReboot, onReset
 						fullWidth
 						variant="contained"
 						startIcon={success ? <CheckIcon /> : (!loading && <PlayArrowIcon />)}
-						onClick={() => manejarLevantar(id)}
+						onClick={() => { }}
 						disabled={loading}
 						sx={estilosBotones.botonLevantar(success)}
 					>
