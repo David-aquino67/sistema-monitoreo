@@ -1,25 +1,93 @@
-import DashboardPage from '@pages/DashboardCard.jsx';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { lightTheme, darkTheme } from '@styles/tema/tema.js';
-import { useState } from 'react';
+// React Router
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-	const storedTheme = localStorage.getItem('theme');
-	const defaultTheme = storedTheme ? storedTheme : 'dark';
-	const [isDarkMode, setIsDarkMode] = useState(defaultTheme === 'dark');
+// Contexts
+import { LoaderContextProvider } from "@/contexts/LoaderContext";
+import { ShortcutContextProvider } from '@/contexts/ShortcutContext';
+import { FastDialogContextProvider } from "@/contexts/FastDialogContext";
+import { FastAlertContextProvider } from '@/contexts/FastAlertContext';
+import { ExtensibleDialogContextProvider } from '@/contexts/ExtensibleDialogContext';
+import { VersionContextProvider } from '@/contexts/VersionContext';
+import { AuthContextProvider } from "@/contexts/AuthContext";
+import { ThemeContextProvider } from '@/contexts/ThemeContext';
 
-	function toggleTheme() {
-		const newTheme = isDarkMode ? 'light' : 'dark';
-		localStorage.setItem('theme', newTheme);
-		setIsDarkMode(newTheme === 'dark');
-	}
+// Components
+import PrivateRoute from '@/components/PrivateRoute';
+import Layout from '@/components/Layout';
 
+// Pages
+import RootPage from "@/pages/Root/page";
+import NotFoundPage from '@/pages/NotFound/page';
+import UnauthorizedPage from '@/pages/Unauthorized/page';
+import LoginPage from '@/pages/Login/page';
+import HomePage from '@/pages/Home/page';
+import VersionPage from '@/pages/Version/page';
+
+export default function App() {
 	return (
-		<ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-			<CssBaseline />
-			<DashboardPage toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-		</ThemeProvider>
-	);
+		<ThemeContextProvider>
+			<ShortcutContextProvider>
+				<FastAlertContextProvider>
+					<FastDialogContextProvider>
+						<ExtensibleDialogContextProvider>
+							<LoaderContextProvider>
+								<BrowserRouter>
+									<AuthContextProvider>
+										<VersionContextProvider>
+											<Routes>
+												<Route
+													path="/"
+													element={
+														<RootPage />
+													}
+												/>
+												<Route
+													path="/home"
+													element={
+														<PrivateRoute>
+															<Layout>
+																<HomePage />
+															</Layout>
+														</PrivateRoute>
+													}
+												/>
+												<Route
+													path="/version"
+													element={
+														<PrivateRoute>
+															<Layout>
+																<VersionPage />
+															</Layout>
+														</PrivateRoute>
+													}
+												/>
+												<Route
+													path="/login"
+													element={
+														<LoginPage />
+													}
+												/>
+												<Route
+													path="/unauthorized"
+													element={
+														<UnauthorizedPage />
+													}
+												/>
+												<Route
+													path='*'
+													element={
+														<NotFoundPage />
+													}
+												/>
+											</Routes>
+										</VersionContextProvider>
+									</AuthContextProvider>
+								</BrowserRouter>
+							</LoaderContextProvider>
+						</ExtensibleDialogContextProvider>
+					</FastDialogContextProvider>
+				</FastAlertContextProvider>
+			</ShortcutContextProvider>
+		</ThemeContextProvider>
+	)
 }
-
-export default App;
