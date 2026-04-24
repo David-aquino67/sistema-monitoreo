@@ -44,7 +44,7 @@ export default function useAuthSetup() {
 	async function redirect() {
 		const isTokenValid = await validateToken();
 		if (!isTokenValid) return;
-		navigate("/home");
+		navigate("/monitoreo");
 	}
 
 	useEffect(() => {
