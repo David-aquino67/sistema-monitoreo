@@ -11,7 +11,7 @@ export const ListadoServidores = ({ servidores, loadingId, execute }) => {
 	return (
 		<Grid {...GridPadreListServidoresConst} sx={ListadoServidoresStyle.GriPadreListServidores}>
 			{servidores?.map((srv) => (
-				<Grid size={{ xs: 12, sm: 6, lg: 4 }} key={srv.id} sx={{ display: 'flex' }}>
+				<Grid size={{ xs: 12, sm: 6, lg: 4, xl: 3 }} key={srv.id} sx={{ display: 'flex' }}>
 					<StatusCard
 						key={srv.id}
 						title={srv.nombre}
