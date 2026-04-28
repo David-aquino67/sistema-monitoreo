@@ -28,7 +28,7 @@ export const BotonesCard = ({ loading, estado, onLevantar, id, onReboot, onReset
 		);
 	}
 	return (
-		<CardActions sx={{ p: 2, pt: 0, gap: 1, flexWrap: 'wrap' }}>
+		<CardActions sx={estilosBotones.cardActions}>
 			{onReboot && (
 				<Button size="small" variant="contained" disabled={loading} onClick={onReboot}>
 					Reinicio
